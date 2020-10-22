@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liga AWE</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="loading">Aguenta aí...</div>
+
+  <h1>Liga AWE</h1>
+
+  <div class="rounds">
+    <h1>Rodadas</h1>
+    <span class="round" id="1">1</span>
+    <span class="round" id="2">2</span>
+    <span class="round" id="3">3</span>
+    <span class="round" id="4">4</span>
+    <span class="round" id="5">5</span>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+
+  <table class="teams" border="1">
+    <thead>
+      <th>Time</th>
+      <th>Pontos</th>
+      <th>Total</th>
+      <th>Patimônio</th>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    let teamsData = [
+      {id: 6126264},
+      {id: 340663},
+      {id: 13952016},
+      {id: 1100348},
+      {id: 6664717},
+      {id: 23706},
+      {id: 2648784},
+      {id: 25676609},
+      {id: 662584},
+      {id: 25919221},
+      {id: 178333},
+      {id: 41084}
+    ];
+    
+    function getTeamsInfo() {
+      teamsData.forEach(team => {
+        $.ajax({
+          type: 'GET',
+          url: './api',
+          data: {
+            teamId: team.id
+          },
+          error: function(error) {
+            console.log('Ops! Algo deu errado.');
+          },
+          success: function(data) {
+            $.grep(teamsData, function(e, i) {
+              if(e.id === data.time.time_id) {
+                e.name = data.time.nome;
+                e.owner = data.time.nome_cartola;
+                e.profilePhoto = data.time.foto_perfil;
+                e.shield = data.time.url_escudo_svg;
+                e.shirt = data.time.url_camisa_svg;
+                e.subscriber = data.time.assinante;
+                e.firstSeason = data.time.temporada_inicial;
+                e.rounds = []
+              }
+            });
+          }
+        });
+      });
+    }
+
+    getTeamsInfo();
+
+    $('.rounds').on('click', 'span', function(e) {
+      getRoundInfo($(this).attr('id')); 
+    });
+
+    function getRoundInfo(roundNumber) {
+      teamsData.forEach(team => {
+        $.ajax({
+          type: 'GET',
+          url: './api',
+          data: {
+            teamId: team.id,
+            round: roundNumber
+          },
+          beforeSend: function() {
+            // setting a timeout
+            $('.loading').show();
+          },
+          error: function(error) {
+            console.log('Ops! Algo deu errado.');
+          },
+          success: function(data) {
+            if(team.id === data.time.time_id) {  
+              let newRound = $.grep(team.rounds, function(e) {
+                return e.number === roundNumber;
+              });
+
+              if(newRound.length === 0) {
+                team.rounds.push({
+                  number: roundNumber,
+                  points: data.pontos,
+                  totalPoints: data.pontos_campeonato,
+                  totalMoney: data.patrimonio
+                });
+              }
+            }
+          },
+          complete: function(data) {
+            setTable(roundNumber);
+            $('.loading').hide();
+          }
+        });
+      });
+    }
+
+    function setTable(roundNumber) {
+      let tBody = $('.teams').children('tbody');
+      tBody.empty();
+      
+      teamsData.forEach(team => {
+        let currentRound = $.grep(team.rounds, function(e) {
+          return e.number === roundNumber;
+        });
+
+        if(currentRound[0]) {
+          tBody.append(
+            '<tr>' + 
+              '<td>' +
+                '#' + team.id + ' - ' + team.name + ' (' + team.owner  + ')' +
+              '</td>' + 
+              '<td>' + currentRound[0].points.toFixed(2) + '</td>' +  
+              '<td>' + currentRound[0].totalPoints.toFixed(2) + '</td>' +  
+              '<td>' + currentRound[0].totalMoney.toFixed(2) + '</td>' +  
+            '</tr>'
+          );
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>
