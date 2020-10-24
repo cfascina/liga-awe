@@ -72,6 +72,10 @@
                 e.rounds = []
               }
             });
+          },
+          complete: function(data) {
+            console.log('getTeamsInfo complete!');
+            console.log(data);
           }
         });
       });
@@ -93,7 +97,6 @@
             round: roundNumber
           },
           beforeSend: function() {
-            // setting a timeout
             $('.loading').show();
           },
           error: function(error) {
