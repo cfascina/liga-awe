@@ -1,5 +1,7 @@
 <?php
 
+require_once '../config/database.php';
+
 function getApiInfo($url) {
 	$options = array(
 		CURLOPT_RETURNTRANSFER => true,
@@ -31,21 +33,22 @@ function getApiInfo($url) {
 }
 
 function getTeamData($teamsIds) {
-	foreach ($teamsIds as $teamId) {
+	foreach($teamsIds as $teamId) {
 		$url = "https://api.cartolafc.globo.com/time/id/" . $teamId;
 		$response = getApiInfo($url);
 		$jsonData = json_decode($response['content'], true);
 
 		$isPro = intval($jsonData['time']['assinante']);
 		$avatar = $jsonData['time']['foto_perfil'];
-		$playerName = $jsonData['time']['nome'];
-		$teamName = $jsonData['time']['nome_cartola'];
+		$playerName = $jsonData['time']['nome_cartola'];
+		$teamName = $jsonData['time']['nome'];
 		$shirtImage = $jsonData['time']['url_camisa_svg'];
 		$shieldImage = $jsonData['time']['url_escudo_svg'];
 		$firstYear = $jsonData['time']['temporada_inicial'];
 
 		addTeam(
 			array(
+				'teamId' => $teamId,
 				'isPro' => $isPro,
 				'avatar' => $avatar,
 				'playerName' => $playerName,
@@ -59,21 +62,27 @@ function getTeamData($teamsIds) {
 }
 
 function addTeam($teamData) {
-	include "../config/database.php";
-	
+	global $conn;
+
+	// echo $teamData['teamId'];
+
 	$sqlQuery = "
-		INSERT INTO players VALUES (
+		INSERT INTO players
+		VALUES (
 			DEFAULT,
-			:isPro
-			:avatar
-			:playerName
-			:teamName
-			:shirtImage
-			:shieldImage
+			:teamId,
+			:isPro,
+			:avatar,
+			:playerName,
+			:teamName,
+			:shirtImage,
+			:shieldImage,
 			:firstYear
-	)";
-		
+		)
+	";
+	
 	$result = $conn->prepare($sqlQuery);
+	$result->bindParam(':teamId', $teamData['teamId']);
 	$result->bindParam(':isPro', $teamData['isPro']);
 	$result->bindParam(':avatar', $teamData['avatar']);
 	$result->bindParam(':playerName', $teamData['playerName']);
@@ -81,12 +90,23 @@ function addTeam($teamData) {
 	$result->bindParam(':shirtImage', $teamData['shirtImage']);
 	$result->bindParam(':shieldImage', $teamData['shieldImage']);
 	$result->bindParam(':firstYear', $teamData['firstYear']);
+	// $result->debugDumpParams();
 
-	if($result->execute()) {
-		echo "Operação realizada com sucesso.";
+	// echo $sqlQuery . '<br>';
+	// echo $teamData['teamId'] . '<br>';
+	// echo $teamData['isPro'] . '<br>';
+	// echo $teamData['avatar'] . '<br>';
+	// echo $teamData['playerName'] . '<br>';
+	// echo $teamData['teamName'] . '<br>';
+	// echo $teamData['shirtImage'] . '<br>';
+	// echo $teamData['shieldImage'] . '<br>';
+	// echo $teamData['firstYear'] . '<br>';
+
+	try {
+		$result->execute();
 	}
-	else {
-		echo "Falha ao executar a operação.";
+	catch (Exception $e) {
+		echo 'Falha ao executar a operação:<br>' . $e->getMessage();
 	}
 }
 
@@ -106,3 +126,4 @@ $teamsIds = array(
 );
 
 getTeamData($teamsIds);
+
