@@ -56,3 +56,30 @@ function getTeamData($teamId) {
         )
     );
 }
+
+function getRoundData($teamId, $roundId) {
+	$url = 'https://api.cartolafc.globo.com/time/id/' . $teamId . '/' . $roundId;
+
+    $response = getApiData($url);
+    $jsonData = json_decode($response['content'], true);
+	
+	$captainId = $jsonData['capitao_id'];
+	$scheme = $jsonData['esquema_id'];
+	$patrimony = $jsonData['patrimonio'];
+	$teamValue = $jsonData['valor_time'];
+	$points = $jsonData['pontos'];
+	$championshipPoints = $jsonData['pontos_campeonato'];
+
+    return(
+        array(
+			'roundId' => $roundId,
+            'teamId' => $teamId,
+            'captainId' => $captainId,
+			'scheme' => $scheme,
+			'patrimony' => $patrimony,
+			'teamValue' => $teamValue,
+			'points' => $points,
+			'championshipPoints' => $championshipPoints			
+        )
+    );
+}
