@@ -64,7 +64,7 @@ function getRoundData($teamId, $roundId) {
     $jsonData = json_decode($response['content'], true);
 	
 	$captainId = $jsonData['capitao_id'];
-	$scheme = $jsonData['esquema_id'];
+	$schemeId = $jsonData['esquema_id'];
 	$patrimony = $jsonData['patrimonio'];
 	$teamValue = $jsonData['valor_time'];
 	$points = $jsonData['pontos'];
@@ -75,7 +75,7 @@ function getRoundData($teamId, $roundId) {
 			'roundId' => $roundId,
             'teamId' => $teamId,
             'captainId' => $captainId,
-			'scheme' => $scheme,
+			'schemeId' => $schemeId,
 			'patrimony' => $patrimony,
 			'teamValue' => $teamValue,
 			'points' => $points,
