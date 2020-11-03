@@ -1,7 +1,7 @@
 <?php
 
-require_once '../config/database.php';
-require_once 'functions.php';
+require_once '../../config/database.php';
+require_once '../baseFunctions.php';
 
 function updateTeams($teamData) {
 	global $conn;
@@ -38,6 +38,9 @@ function updateTeams($teamData) {
 	}
 }
 
-$teamsIds = file('idTeams.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$teamsData = getTeamsData($teamsIds);
-updateTeams($teamsData);
+$teamsIds = file('../idTeams.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+foreach($teamsIds as $teamId) {
+    $teamData = getTeamData($teamId);
+    updateTeams($teamData);
+}
