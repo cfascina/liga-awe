@@ -59,7 +59,6 @@ function getMemberData($memberId) {
 
 function getRoundData($teamId, $roundId) {
 	$url = 'https://api.cartolafc.globo.com/time/id/' . $teamId . '/' . $roundId;
-
     $response = getApiData($url);
     $jsonData = json_decode($response['content'], true);
 	
@@ -82,4 +81,30 @@ function getRoundData($teamId, $roundId) {
 			'championshipPoints' => $championshipPoints			
         )
     );
+}
+
+function getClubsData() {
+    $url = 'https://api.cartolafc.globo.com/clubes';
+    $response = getApiData($url);
+    $jsonData = json_decode($response['content'], true);
+
+    $clubsArr = array();
+
+    foreach($jsonData as $club) {
+        $cartolaId = $club['id'];
+        $name = $club['nome'];
+        $abbreviation = $club['abreviacao'];
+        $shield = $club['escudos']['60x60'];
+        
+        array_push(
+            $clubsArr,
+            array(
+                'cartolaId' => $cartolaId,
+                'name' => $name,
+                'abbreviation' => $abbreviation,
+                'shield' => $shield
+            )
+        );
+    }
+    return $clubsArr;
 }

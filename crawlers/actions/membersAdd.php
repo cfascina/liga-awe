@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../config/database.php';
-require_once '../baseFunctions.php';
+require_once '../getData.php';
 
 function addMember($memberData) {
 	global $conn;
