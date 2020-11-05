@@ -30,28 +30,28 @@ function getApiData($url) {
 	return $header;
 }
 
-function getTeamData($teamId) {
-    $url = 'https://api.cartolafc.globo.com/time/id/' . $teamId;
+function getMemberData($memberId) {
+    $url = 'https://api.cartolafc.globo.com/time/id/' . $memberId;
     $response = getApiData($url);
     $jsonData = json_decode($response['content'], true);
 
-    $isPro = intval($jsonData['time']['assinante']);
+    $name = $jsonData['time']['nome_cartola'];
+    $team = $jsonData['time']['nome'];
     $avatar = $jsonData['time']['foto_perfil'];
-    $playerName = $jsonData['time']['nome_cartola'];
-    $teamName = $jsonData['time']['nome'];
-    $shirtImage = $jsonData['time']['url_camisa_svg'];
-    $shieldImage = $jsonData['time']['url_escudo_svg'];
+    $shield = $jsonData['time']['url_escudo_svg'];
+    $shirt = $jsonData['time']['url_camisa_svg'];
+    $pro = intval($jsonData['time']['assinante']);
     $firstYear = $jsonData['time']['temporada_inicial'];
 
     return(
         array(
-            'teamId' => $teamId,
-            'isPro' => $isPro,
+            'cartolaId' => $memberId,
+            'name' => $name,
+            'team' => $team,
             'avatar' => $avatar,
-            'playerName' => $playerName,
-            'teamName' => $teamName,
-            'shirtImage' => $shirtImage,
-            'shieldImage' => $shieldImage,
+            'shield' => $shield,
+            'shirt' => $shirt,
+            'pro' => $pro,
             'firstYear' => $firstYear
         )
     );

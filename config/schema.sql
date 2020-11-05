@@ -18,6 +18,28 @@ USE `liga_awe`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `members`
+--
+
+DROP TABLE IF EXISTS `members`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `members` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_cartola` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `team` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `shield` varchar(255) NOT NULL,
+  `shirt` varchar(255) NOT NULL,
+  `pro` int NOT NULL,
+  `first_year` year NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_cartola_UNIQUE` (`id_cartola`)
+) ENGINE=InnoDB AUTO_INCREMENT=497 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `rounds`
 --
 
@@ -38,28 +60,6 @@ CREATE TABLE `rounds` (
   UNIQUE KEY `ids_UNIQUE` (`id_round`,`id_team`)
 ) ENGINE=InnoDB AUTO_INCREMENT=564 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `teams`
---
-
-DROP TABLE IF EXISTS `teams`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `teams` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_team_cartola` int NOT NULL,
-  `is_pro` int NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  `player_name` varchar(255) NOT NULL,
-  `team_name` varchar(255) NOT NULL,
-  `shirt_image` varchar(255) NOT NULL,
-  `shield_image` varchar(255) NOT NULL,
-  `first_year` year NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_cartola_UNIQUE` (`id_team_cartola`)
-) ENGINE=InnoDB AUTO_INCREMENT=287 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -70,4 +70,4 @@ CREATE TABLE `teams` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-03 20:14:55
+-- Dump completed on 2020-11-04 21:16:35
