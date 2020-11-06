@@ -61,9 +61,6 @@ function getLineUpData($memberId, $roundId) {
 	$url = 'https://api.cartolafc.globo.com/time/id/' . $memberId . '/' . $roundId;
     $response = getApiData($url);
     $jsonData = json_decode($response['content'], true);
-    
-    // TIRAR ESQUEMA DE ROUNDS E COLOCAR EM LINEUP
-    // echo $jsonData['esquema'] . '<br>';
 
     $lineUpArr = array();
 

@@ -1,9 +1,11 @@
 <?php
 
+use function PHPSTORM_META\type;
+
 require_once '../../config/database.php';
 require_once '../getData.php';
 
-function addLineup($roundData) {
+function addLineup($lineupData) {
 	global $conn;
 
 	$sqlQuery = "
@@ -19,26 +21,38 @@ function addLineup($roundData) {
             :points,
             :total
         )
-	";
+    ";
+    
+    foreach($lineupData as $athlete) {
+        // ADD LINEUP ATHLETE.
+        print_r($athlete);
+        echo '<br>';
+        
+        
+        // ADD LINEUP ATHLETE SCOUTS.
+        if(!empty($athlete['scouts'])) {
+            echo 'Add Scout!';
+        }
+        echo '<br><br>';
+    }
 	
-	$result = $conn->prepare($sqlQuery);
-	$result->bindParam(':roundId', $roundData['roundId']);
-	$result->bindParam(':teamId', $roundData['teamId']);
-	$result->bindParam(':captainId', $roundData['captainId']);
-	$result->bindParam(':schemeId', $roundData['schemeId']);
-	$result->bindParam(':patrimony', $roundData['patrimony']);
-	$result->bindParam(':teamValue', $roundData['teamValue']);
-	$result->bindParam(':points', $roundData['points']);
-	$result->bindParam(':total', $roundData['total']);
+	// $result = $conn->prepare($sqlQuery);
+	// $result->bindParam(':roundId', $lineupData['roundId']);
+	// $result->bindParam(':athleteId', $lineupData['athleteId']);
+	// $result->bindParam(':clubId', $lineupData['clubId']);
+	// $result->bindParam(':price', $lineupData['price']);
+	// $result->bindParam(':points', $lineupData['points']);
+	// $result->bindParam(':variation', $lineupData['variation']);
+	// $result->bindParam(':scouts', $lineupData['scouts']);
 	
-	try {
-		$result->execute();
-        echo 'Rodada para o membro ' . $roundData['teamId'] . ' cadastrada com sucesso.<br>';
-	}
-	catch(Exception $e) {
-		echo 'Falha ao cadastrar rodada para o membro ' . $roundData['teamId'] . '.<br>';
-        // echo $e->getMessage();
-	}
+	// try {
+	// 	$result->execute();
+    //     echo 'Escalação de ' . $lineupData['teamId'] . ' cadastrada com sucesso.<br>';
+	// }
+	// catch(Exception $e) {
+	// 	echo 'Falha ao cadastrar escalação de ' . $lineupData['teamId'] . '.<br>';
+    //     // echo $e->getMessage();
+	// }
 }
 
 $roundId = $_GET['roundId'];
@@ -48,9 +62,7 @@ if(isset($roundId) && is_numeric($roundId)) {
     
     foreach($members as $memberId) {
         $lineupData = getLineupData($memberId, $roundId);
-        // addLineup($lineupData);
-
-        
+        addLineup($lineupData);
     }
 }
 else {
