@@ -12,7 +12,6 @@ function addRound($roundData) {
             DEFAULT,
             :roundId,
             :teamId,
-            :captainId,
             :schemeId,
             :patrimony,
             :teamValue,
@@ -24,7 +23,6 @@ function addRound($roundData) {
 	$result = $conn->prepare($sqlQuery);
 	$result->bindParam(':roundId', $roundData['roundId']);
 	$result->bindParam(':teamId', $roundData['teamId']);
-	$result->bindParam(':captainId', $roundData['captainId']);
 	$result->bindParam(':schemeId', $roundData['schemeId']);
 	$result->bindParam(':patrimony', $roundData['patrimony']);
 	$result->bindParam(':teamValue', $roundData['teamValue']);

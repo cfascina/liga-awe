@@ -124,8 +124,7 @@ function getRoundData($memberId, $roundId) {
 	$url = 'https://api.cartolafc.globo.com/time/id/' . $memberId . '/' . $roundId;
     $response = getApiData($url);
     $jsonData = json_decode($response['content'], true);
-	
-	$captainId = $jsonData['capitao_id'];
+
 	$schemeId = $jsonData['esquema_id'];
 	$patrimony = $jsonData['patrimonio'];
 	$teamValue = $jsonData['valor_time'];
@@ -136,7 +135,6 @@ function getRoundData($memberId, $roundId) {
         array(
 			'roundId' => $roundId,
             'teamId' => $memberId,
-            'captainId' => $captainId,
 			'schemeId' => $schemeId,
 			'patrimony' => $patrimony,
 			'teamValue' => $teamValue,
