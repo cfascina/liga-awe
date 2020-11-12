@@ -26,13 +26,37 @@ DROP TABLE IF EXISTS `clubs`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clubs` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_cartola` varchar(45) NOT NULL,
+  `id_cartola` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `abbreviation` char(3) NOT NULL,
   `shield` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_cartola_UNIQUE` (`id_cartola`)
 ) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `lineups`
+--
+
+DROP TABLE IF EXISTS `lineups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lineups` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_round` int NOT NULL,
+  `id_member` int NOT NULL,
+  `id_athlete` int NOT NULL,
+  `fl_captain` tinyint(1) NOT NULL,
+  `id_position` int NOT NULL,
+  `id_club` int NOT NULL,
+  `price` decimal(4,2) NOT NULL,
+  `points` decimal(4,2) NOT NULL,
+  `variation` decimal(4,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_id_club_idx` (`id_club`),
+  CONSTRAINT `fk_id_club` FOREIGN KEY (`id_club`) REFERENCES `clubs` (`id_cartola`)
+) ENGINE=InnoDB AUTO_INCREMENT=880 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,4 +112,4 @@ CREATE TABLE `rounds` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-05 22:26:47
+-- Dump completed on 2020-11-12 12:49:04

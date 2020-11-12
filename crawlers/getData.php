@@ -57,35 +57,34 @@ function getClubsData() {
     return $clubsArr;
 }
 
-function getLineUpData($memberId, $roundId) {
+// SEPARAR FUNÇÃO QUE PEGA ESCALAÇÃO DA FUNÇAÕ QUE PEGA OS SCOUTS
+// DOS JOGADORES EM CADA ESCALAÇÃO, PARA OTIMIZAR A PERFORMANCE.
+function getLineupData($roundId, $memberId) {
 	$url = 'https://api.cartolafc.globo.com/time/id/' . $memberId . '/' . $roundId;
     $response = getApiData($url);
     $jsonData = json_decode($response['content'], true);
 
+    $captainId = $jsonData['capitao_id'];
     $lineUpArr = array();
-
+    
     foreach($jsonData['atletas'] as $athlete) {
         $athleteId = $athlete['atleta_id'];
+        $positionId = $athlete['posicao_id'];
         $clubId = $athlete['clube_id'];
         $price = $athlete['preco_num'];
         $points = $athlete['pontos_num'];
         $variation = $athlete['variacao_num'];
-        
-        $scoutsArr = array();
-        foreach($athlete['scout'] as $scout => $quantity) { 
-            array_push($scoutsArr[$scout] = $quantity);
-        }
 
         array_push(
             $lineUpArr,
             array(
-                'roundId' => $roundId,
                 'athleteId' => $athleteId,
+                'captainId' => $captainId,
+                'positionId' => $positionId,
                 'clubId' => $clubId,
                 'price' => $price,
                 'points' => $points,
-                'variation' => $variation,
-                'scouts' => $scoutsArr
+                'variation' => $variation
             )
         );
     }
@@ -120,6 +119,7 @@ function getMemberData($memberId) {
     );
 }
 
+// PASSAR O 'captainId' PARA A FUNÇÃO 'getLineUpData'
 function getRoundData($memberId, $roundId) {
 	$url = 'https://api.cartolafc.globo.com/time/id/' . $memberId . '/' . $roundId;
     $response = getApiData($url);
