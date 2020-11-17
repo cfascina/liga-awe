@@ -9,9 +9,11 @@ if(isset($roundId) && is_numeric($roundId)) {
     
     foreach($members as $memberId) {
         $lineupData = getLineupData($roundId, $memberId);
+        deleteLineup($roundId, $memberId);
         addLineup($roundId, $memberId, $lineupData);
     }
 }
 else {
     echo 'Rodada inválida.';
 }
+
