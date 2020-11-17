@@ -9,7 +9,7 @@ if(isset($roundId) && is_numeric($roundId)) {
     
     foreach($members as $memberId) {
         $roundData = getRoundData($memberId, $roundId);
-        addRound($roundData);
+        updateRound($roundData);
     }
 }
 else {
