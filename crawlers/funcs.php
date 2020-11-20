@@ -381,8 +381,8 @@ function addRound($roundData) {
         echo 'Rodada ' . $roundData['roundId'] . ' do membro ' . $roundData['memberId'] . ' cadastrada com sucesso.<br>';
 	}
 	catch(Exception $e) {
-		echo 'Falha ao cadastrar rodada ' . $roundData['roundId'] . ' para o membro ' . $roundData['memberId'] . '.<br>';
-        // echo $e->getMessage();
+		// echo 'Falha ao cadastrar rodada ' . $roundData['roundId'] . ' para o membro ' . $roundData['memberId'] . '.<br>';
+        echo $e->getMessage();
 	}
 }
 

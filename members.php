@@ -21,12 +21,12 @@
 	<script src="./assets/js/services/members.js"></script>
 	<script>
 		getMembers()
-			.then(function (res) {
+			.then(function(res) {
 				setMembersTable(res);
 			})
-			.catch(function (e) {
+			.catch(function(err) {
 				console.log('Something went wrong.');
-				// console.log(e);
+				// console.log(err);
 			});
 
 		function setMembersTable(arrMembers) {
