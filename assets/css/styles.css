@@ -57,11 +57,18 @@ body {
 	max-width: 1920px;
 	width: 90%;
 }
-.content.member-details .graph-points {
+.content.member-details .chart h1 {
+	font-size: 18px;
+	margin: 0 0 15px 0;
+}
+.content.member-details .chart {
 	height: 300px;
-	margin: auto;
+	margin: 60px auto 0;
 	position: relative;
-}  
+}
+.content.member-details .chart:first-of-type {
+	margin: auto;
+}
 
 /*----------------------------*/
 .loading {

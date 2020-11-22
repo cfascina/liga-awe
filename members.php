@@ -34,7 +34,7 @@
 				let isProStamp = member.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 
 				$('.list').append(
-					'<a href="memberDetails.php?id=' + member.id + '">' +
+					'<a href="memberDetails.php?id=' + member.id_cartola + '">' +
 						'<img src="' + member.shield + '" class="shield" />' +
 						'<span class="team">' + member.team + '</span>' +
 						'<span class="name">(' + member.name + ')</span>' +

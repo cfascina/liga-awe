@@ -5,19 +5,17 @@ header('Content-Type: application/json; charset=UTF-8');
 
 include '../../config/database.php';
 
+$id = isset($_GET['id']) ? $_GET['id'] : die(); 
+
 $sqlQuery = "
-	SELECT
-		id,
-		id_cartola,
-		name,
-		team,
-		shield,
-		pro
-	FROM members
-	ORDER BY team
+    SELECT id_round, points, patrimony 
+    FROM rounds;
+    WHERE id_member = ?;
 ";
 
 $result = $conn->prepare($sqlQuery);
+
+$result->bindParam(1, $id);
 
 if($result->execute()) {
 	$data = array();
