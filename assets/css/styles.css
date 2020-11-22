@@ -7,15 +7,15 @@ body {
 }
 
 /*----------------------------*/
-/* Teams
+/* Members
 /*----------------------------*/
-.content.teams {
+.content.members {
   margin: 0 auto;
   max-width: 1920px;
   width: 90%;
 }
-/* .content.teams .list {} */
-.content.teams .list a {
+/* .content.members .list {} */
+.content.members .list a {
 	background-color: #FFFFFF;
 	color: #000000;
 	align-items: center;
@@ -25,29 +25,43 @@ body {
 	padding: 10px;
 	text-decoration: none;
 }
-.content.teams .list a:first-of-type {
+.content.members .list a:first-of-type {
 	margin-top: 0;
 }
-.content.teams .list a:hover {
+.content.members .list a:hover {
 	background-color: gray;
 }
-.content.teams .list a img.shield {
+.content.members .list a img.shield {
 	height: 40px;
 	width: 40px;
 }
-.content.teams .list a span.team {
+.content.members .list a span.team {
 	font-weight: 700;
 	margin-left: 10px;
 }
-.content.teams .list a span.name {
+.content.members .list a span.name {
 	font-size: 14px;
 	margin-left: 5px;
 }
-.content.teams .list a img.pro {
+.content.members .list a img.pro {
 	height: 20px;
 	width: 40px;
 	margin-left: auto;
 }
+
+/*----------------------------*/
+/* Member Details
+/*----------------------------*/
+.content.member-details {
+	margin: 0 auto;
+	max-width: 1920px;
+	width: 90%;
+}
+.content.member-details .graph-points {
+	height: 300px;
+	margin: auto;
+	position: relative;
+}  
 
 /*----------------------------*/
 .loading {

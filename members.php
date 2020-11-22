@@ -12,7 +12,7 @@
 	<h1>Liga AWE</h1>
 	<h2>Membros</h2>
 
-	<div class="content teams">
+	<div class="content members">
 		<div class="list"></div>
 	</div>
 
