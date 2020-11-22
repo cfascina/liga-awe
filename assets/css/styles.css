@@ -1,5 +1,5 @@
 body {
-	background-color: lightgray;
+	background-color: #FFFFFF;
 	color: #000000;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 16px;
@@ -57,11 +57,19 @@ body {
 	max-width: 1920px;
 	width: 90%;
 }
-.content.member-details .chart h1 {
+.content.member-details h1 {
 	font-size: 18px;
 	margin: 0 0 15px 0;
 }
+.content.member-details .info {
+	border: 1px solid tomato;
+}
+.content.member-details .info img{
+	height: 40px;
+	width: 40px;
+}
 .content.member-details .chart {
+	border: 1px solid tomato;
 	height: 300px;
 	margin: 60px auto 0;
 	position: relative;

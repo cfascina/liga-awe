@@ -13,6 +13,21 @@
 	<h2>Membros - Detalhes</h2>
 
 	<div class="content member-details">
+		<div class="info">
+			<h1>Informações Gerais</h1>
+			<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_181/escudo/c2/10/28/00ef471e0b-9abe-4da5-afa6-e775d705b2c220201103141028" class="shield" />
+			<div>
+				<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_181/camisa/c2/11/23/00ef471e0b-9abe-4da5-afa6-e775d705b2c220201103141123" class="shirt" />
+				<span class="team">Dupla Marques</span>
+				<img src="./assets/images/pro.svg" class="pro" />
+			</div>
+			<div>
+				<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/placeholder/perfil.png" class="avatar" />
+				<span class="team">Myller e Matheus</span>
+			</div>
+			Primeira Temporada: <span class="first_year​">2016</span>	
+		</div>
+
 		<div class="chart points">
 			<h1>Gráfico de Pontuação</h1>
 			<canvas id="ctx-points"></canvas>
@@ -23,7 +38,6 @@
 			<canvas id="ctx-patrimony"></canvas>
 		</div>
 	</div>
-
 
 	<script src="./assets/js/libs/jquery.min.js"></script>
 	<script src="./assets/js/libs/chart.min.js"></script>
@@ -41,7 +55,16 @@
 				splitChartData(res);
 			})
 			.catch(function(err) {
-				console.log('Something went wrong.');
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+
+		getMember($.urlParam('id'))
+			.then(function(res) {
+				setMemberInfo(res[0]);
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
 				// console.log(err);
 			});
 
@@ -60,15 +83,16 @@
 			setChartPatrimony(arrRounds, arrPatrimony);
 		}
 
-		// getMember($.urlParam('id'))
-		// 	.then(function(res) {
-		// 		console.log(res);
-		// 		// Área de informações do membro;
-		// 	})
-		// 	.catch(function(err) {
-		// 		console.log('Something went wrong.');
-		// 		// console.log(err);
-		// 	});
+		function setMemberInfo(arrMember) {			
+			console.log(arrMember);
+			// console.log(arrMember.team);
+			// console.log(arrMember.name);
+			// console.log(arrMember.first_year);
+			// console.log(arrMember.avatar​​);
+			// console.log(arrMember.pro);
+			// console.log(arrMember.shield);
+			// console.log(arrMember.shirt);
+		}
 
 		// getMostUsedScheme($.urlParam('id'))
 		// 	.then(function(res) {

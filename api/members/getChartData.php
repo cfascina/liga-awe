@@ -9,7 +9,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $sqlQuery = "
     SELECT id_round, points, patrimony 
-    FROM rounds;
+    FROM rounds
     WHERE id_member = ?;
 ";
 

@@ -10,16 +10,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : die();
 $sqlQuery = "
 	SELECT *
 	FROM members
-	WHERE id = ?
-";
-
-$sqlQuery02 = "
-	SELECT R.id_scheme, COUNT(1)
-	FROM rounds R 
-	INNER JOIN members M ON
-		R.id_member = M.id_cartola
-	WHERE M.id = 566
-	GROUP BY R.id_scheme;
+	WHERE id_cartola = ?
 ";
 
 $result = $conn->prepare($sqlQuery);
