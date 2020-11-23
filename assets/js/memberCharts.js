@@ -6,11 +6,11 @@ function setChartPoints(arrRounds, arrPoints) {
             datasets: [{
                 data: arrPoints,
                 fill: false,
-                borderColor: 'blue',
+                borderColor: '#2B7A78',
                 borderWidth: 2,
                 lineTension: 0,
-                pointBackgroundColor: 'green',
-                pointBorderColor: 'green'
+                pointBackgroundColor: '#17252A',
+                pointBorderColor: '#17252A'
             }]
         },
         options: {
@@ -19,9 +19,14 @@ function setChartPoints(arrRounds, arrPoints) {
             },
             maintainAspectRatio: false,
             tooltips: {
-                mode: 'index',
+                backgroundColor: '#2B7A78',
+                bodyAlign: 'center',
+                bodyFontColor: '#FEFFFF',
+                bodyFontStyle: 'bold',
                 intersect: false,
-                backgroundColor: 'green',
+                mode: 'index',
+                titleAlign: 'center',
+                titleFontColor: '#DEF2F1',
                 custom: function(tooltip) {
                     tooltip.displayColors = false;
                 },
@@ -30,7 +35,7 @@ function setChartPoints(arrRounds, arrPoints) {
                         return 'Rodada ' + tooltipItem[0].xLabel;
                     },
                     label: function(tooltipItem, data) {
-                        return 'Pontuação: ' + tooltipItem.yLabel;
+                        return 'Pontuação: ' + tooltipItem.yLabel.toFixed(2);
                     }
                 }
             },
@@ -38,13 +43,23 @@ function setChartPoints(arrRounds, arrPoints) {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
+                        fontColor: '#2B7A78',
+                        fontStyle: 'bold',
                         labelString: 'Rodadas'
+                    },
+                    ticks: {
+                        fontColor: '#2B7A78'
                     }
                 }],
                 yAxes: [{
                     scaleLabel: {
                         display: true,
+                        fontColor: '#2B7A78',
+                        fontStyle: 'bold',
                         labelString: 'Pontuação'
+                    },
+                    ticks: {
+                        fontColor: '#2B7A78'
                     }
                 }]
             }  
@@ -60,11 +75,11 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
             datasets: [{
                 data: arrPatrimony,
                 fill: false,
-                borderColor: 'blue',
+                borderColor: '#2B7A78',
                 borderWidth: 2,
                 lineTension: 0,
-                pointBackgroundColor: 'green',
-                pointBorderColor: 'green'
+                pointBackgroundColor: '#17252A',
+                pointBorderColor: '#17252A'
             }]
         },
         options: {
@@ -73,9 +88,14 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
             },
             maintainAspectRatio: false,
             tooltips: {
-                mode: 'index',
+                backgroundColor: '#2B7A78',
+                bodyAlign: 'center',
+                bodyFontColor: '#FEFFFF',
+                bodyFontStyle: 'bold',
                 intersect: false,
-                backgroundColor: 'green',
+                mode: 'index',
+                titleAlign: 'center',
+                titleFontColor: '#DEF2F1',
                 custom: function(tooltip) {
                     tooltip.displayColors = false;
                 },
@@ -84,7 +104,7 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
                         return 'Rodada ' + tooltipItem[0].xLabel;
                     },
                     label: function(tooltipItem, data) {
-                        return 'Patrimônio: ' + tooltipItem.yLabel;
+                        return 'Patrimônio: ' + tooltipItem.yLabel.toFixed(2);
                     }
                 }
             },
@@ -92,16 +112,26 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
+                        fontColor: '#2B7A78',
+                        fontStyle: 'bold',
                         labelString: 'Rodadas'
+                    },
+                    ticks: {
+                        fontColor: '#2B7A78'
                     }
                 }],
                 yAxes: [{
                     scaleLabel: {
                         display: true,
+                        fontColor: '#2B7A78',
+                        fontStyle: 'bold',
                         labelString: 'Patrimônio'
+                    },
+                    ticks: {
+                        fontColor: '#2B7A78'
                     }
                 }]
-            }  
+            } 
         }
     });
 }
