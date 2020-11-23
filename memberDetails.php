@@ -9,36 +9,41 @@
 </head>
 
 <body>
-	<h1>Liga AWE</h1>
-	<h2>Membros - Detalhes</h2>
+	<header>
+		<h1>Liga AWE</h1>
+		<span class="sep">|</span>
+		<a href="members.php">Membros</a>
+		<span class="sep">></span>
+		<span class="current">Detalhes</span>
+	</header>
 
 	<div class="content member-details">
+		<h1>Informações Gerais</h1>
 		<div class="info">
-			<h1>Informações Gerais</h1>
 			<div class="wrap">
 				<div class="box">
-					<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_181/escudo/c2/10/28/00ef471e0b-9abe-4da5-afa6-e775d705b2c220201103141028" class="shield" />
-					<span class="team">Dupla Marques</span>
+					<img src="" class="shield" />
+					<span class="team"></span>
 					<img src="./assets/images/pro.svg" class="pro" />
 				</div>
 				<div class="box">
-					<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/placeholder/perfil.png" class="avatar" />
-					<span>Myller e Matheus</span>
+					<img src="" class="avatar" />
+					<span class="name"></span>
 				</div>
 				<div class="box">
-					<img src="https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_181/camisa/c2/11/23/00ef471e0b-9abe-4da5-afa6-e775d705b2c220201103141123" class="shirt" />
-					<span>Cartoleiro dede 2016</span>	
+					<img src="" class="shirt" />
+					<span class="first_year"></span>	
 				</div>
 			</div>
 		</div>
 
+		<h1>Gráfico de Pontuação</h1>
 		<div class="chart points">
-			<h1>Gráfico de Pontuação</h1>
 			<canvas id="ctx-points"></canvas>
 		</div>
 
+		<h1>Gráfico de Patrimônio</h1>
 		<div class="chart patrimony">
-			<h1>Gráfico de Patrimônio</h1>
 			<canvas id="ctx-patrimony"></canvas>
 		</div>
 	</div>
@@ -87,15 +92,19 @@
 			setChartPatrimony(arrRounds, arrPatrimony);
 		}
 
-		function setMemberInfo(arrMember) {			
+		function setMemberInfo(arrMember) {
+			$('.info .box img.shield').attr('src', arrMember.shield);
+			$('.info .box img.avatar').attr('src', arrMember.avatar);
+			$('.info .box img.shirt').attr('src', arrMember.shirt);
+
+			$('.info .box span.team').append(arrMember.team);
+			$('.info .box span.name').append(arrMember.name);
+			$('.info .box span.first_year').append('Cartoleiro desde ' + arrMember.first_year);
+
 			console.log(arrMember);
 			// console.log(arrMember.team);
 			// console.log(arrMember.name);
 			// console.log(arrMember.first_year);
-			// console.log(arrMember.avatar​​);
-			// console.log(arrMember.pro);
-			// console.log(arrMember.shield);
-			// console.log(arrMember.shirt);
 		}
 
 		// getMostUsedScheme($.urlParam('id'))
