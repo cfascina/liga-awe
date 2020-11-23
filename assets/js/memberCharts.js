@@ -1,3 +1,18 @@
+function splitChartData(chartData) {
+    let arrRounds = [];
+    let arrPoints = [];
+    let arrPatrimony = [];
+    
+    chartData.forEach(roundData => {
+        arrRounds.push(roundData.id_round);
+        arrPoints.push(roundData.points);
+        arrPatrimony.push(roundData.patrimony);
+    });
+
+    setChartPoints(arrRounds, arrPoints);
+    setChartPatrimony(arrRounds, arrPatrimony);
+}
+
 function setChartPoints(arrRounds, arrPoints) {
     var ctx = new Chart($('#ctx-points'), {
         type: 'line',
@@ -26,7 +41,7 @@ function setChartPoints(arrRounds, arrPoints) {
                 intersect: false,
                 mode: 'index',
                 titleAlign: 'center',
-                titleFontColor: '#DEF2F1',
+                titleFontColor: '#FEFFFF',
                 custom: function(tooltip) {
                     tooltip.displayColors = false;
                 },
@@ -44,24 +59,30 @@ function setChartPoints(arrRounds, arrPoints) {
                     scaleLabel: {
                         display: true,
                         fontColor: '#2B7A78',
+                        fontSize: 14,
                         fontStyle: 'bold',
                         labelString: 'Rodadas'
                     },
                     ticks: {
                         fontColor: '#2B7A78'
+                    },
+                    gridLines: {
+                        // color: 'red'
                     }
                 }],
                 yAxes: [{
                     scaleLabel: {
                         display: true,
                         fontColor: '#2B7A78',
+                        fontSize: 14,
                         fontStyle: 'bold',
                         labelString: 'Pontuação'
                     },
                     ticks: {
+                        beginAtZero: true,
                         fontColor: '#2B7A78'
                     }
-                }]
+                }]                
             }  
         }
     });
@@ -113,6 +134,7 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
                     scaleLabel: {
                         display: true,
                         fontColor: '#2B7A78',
+                        fontSize: 14,
                         fontStyle: 'bold',
                         labelString: 'Rodadas'
                     },
@@ -124,6 +146,7 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
                     scaleLabel: {
                         display: true,
                         fontColor: '#2B7A78',
+                        fontSize: 14,
                         fontStyle: 'bold',
                         labelString: 'Patrimônio'
                     },

@@ -26,13 +26,13 @@
 			<div class="name"></div>
 		</div>
 
-		<h1>Gráfico de Pontuação</h1>
 		<div class="chart points">
+			<h1>Gráfico de Pontuação</h1>
 			<canvas id="ctx-points"></canvas>
 		</div>
 
-		<h1>Gráfico de Patrimônio</h1>
 		<div class="chart patrimony">
+			<h1>Gráfico de Patrimônio</h1>
 			<canvas id="ctx-patrimony"></canvas>
 		</div>
 	</div>
@@ -66,20 +66,7 @@
 				// console.log(err);
 			});
 
-		function splitChartData(chartData) {
-			let arrRounds = [];
-			let arrPoints = [];
-			let arrPatrimony = [];
-			
-			chartData.forEach(roundData => {
-				arrRounds.push(roundData.id_round);
-				arrPoints.push(roundData.points);
-				arrPatrimony.push(roundData.patrimony);
-			});
-
-			setChartPoints(arrRounds, arrPoints);
-			setChartPatrimony(arrRounds, arrPatrimony);
-		}
+		
 
 		function setMemberInfo(arrMember) {
 			let proStamp = arrMember.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';

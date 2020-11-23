@@ -102,12 +102,6 @@ header span.current {
 	max-width: 1920px;
 	width: 90%;
 }
-.content.member-details h1 {
-	color: #2B7A78;
-	font-size: 18px;
-	margin: 30px auto 0;
-	text-align: center;
-}
 .content.member-details .info {
 	margin: 30px auto 0;
 }
@@ -141,10 +135,16 @@ header span.current {
 	background-color: #DEF2F1;
 	border-radius: 15px;
 	height: 300px;
-	margin: 10px auto 0;
-	padding: 25px 15px 15px;
+	margin: 30px auto 0;
+	padding: 15px 15px 45px;
 	position: relative;
 }
 .content.member-details .chart:first-of-type {
 	margin: auto;
+}
+.content.member-details .chart h1 {
+	color: #2B7A78;
+	font-size: 18px;
+	margin: 0 auto 15px;
+	text-align: center;
 }
