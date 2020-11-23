@@ -18,23 +18,12 @@
 	</header>
 
 	<div class="content member-details">
-		<h1>Informações Gerais</h1>
 		<div class="info">
-			<div class="wrap">
-				<div class="box">
-					<img src="" class="shield" />
-					<span class="team"></span>
-					<img src="./assets/images/pro.svg" class="pro" />
-				</div>
-				<div class="box">
-					<img src="" class="avatar" />
-					<span class="name"></span>
-				</div>
-				<div class="box">
-					<img src="" class="shirt" />
-					<span class="first_year"></span>	
-				</div>
+			<div class="shield-wrap">
+				<img class="shield" />
 			</div>
+			<div class="team"></div>
+			<div class="name"></div>
 		</div>
 
 		<h1>Gráfico de Pontuação</h1>
@@ -93,18 +82,12 @@
 		}
 
 		function setMemberInfo(arrMember) {
-			$('.info .box img.shield').attr('src', arrMember.shield);
-			$('.info .box img.avatar').attr('src', arrMember.avatar);
-			$('.info .box img.shirt').attr('src', arrMember.shirt);
-
-			$('.info .box span.team').append(arrMember.team);
-			$('.info .box span.name').append(arrMember.name);
-			$('.info .box span.first_year').append('Cartoleiro desde ' + arrMember.first_year);
-
-			console.log(arrMember);
-			// console.log(arrMember.team);
-			// console.log(arrMember.name);
-			// console.log(arrMember.first_year);
+			let proStamp = arrMember.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+			
+			$('.info .shield-wrap img.shield').attr('src', arrMember.shield);
+			$('.info .shield-wrap img.shield').after(proStamp);
+			$('.info .team').append(arrMember.team);
+			$('.info .name').append(arrMember.name + ' (Cartoleiro desde ' + arrMember.first_year + ')');
 		}
 
 		// getMostUsedScheme($.urlParam('id'))
