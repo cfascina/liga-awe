@@ -9,8 +9,11 @@
 </head>
 
 <body>
-	<h1>Liga AWE</h1>
-	<h2>Membros</h2>
+	<header>
+		<h1>Liga AWE</h1>
+		<span class="sep">|</span>
+		<span class="current">Membros</span>
+	</header>
 
 	<div class="content members">
 		<div class="list"></div>

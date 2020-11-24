@@ -5,9 +5,9 @@
 /* #FEFFFF */
 
 body {
-	background-color: #FEFFFF;
+	background-color: #DEF2F1;
 	color: #17252A;
-	font-family: 'Courier New', Courier, monospace;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 16px;
 	margin: 0;
 }
@@ -55,26 +55,28 @@ header span.current {
 /* Members
 /*----------------------------*/
 .content.members {
-  margin: 0 auto;
-  max-width: 1920px;
-  width: 90%;
+	margin: 30px auto 0;
+	max-width: 1920px;
+	width: 90%;
 }
 /* .content.members .list {} */
 .content.members .list a {
-	background-color: #FFFFFF;
-	color: #000000;
+	background-color: #FEFFFF;
+	border-radius: 15px;
+	color: #17252A;
 	align-items: center;
 	display: flex;
 	justify-content: flex-start;
 	margin-top: 10px;
-	padding: 10px;
+	padding: 15px;
 	text-decoration: none;
 }
 .content.members .list a:first-of-type {
 	margin-top: 0;
 }
 .content.members .list a:hover {
-	background-color: gray;
+	background-color: #3AAFA9;
+	color: #FEFFFF;
 }
 .content.members .list a img.shield {
 	height: 40px;
@@ -98,13 +100,11 @@ header span.current {
 /* Member Details
 /*----------------------------*/
 .content.member-details {
-	margin: 0 auto;
+	margin: 30px auto 0;
 	max-width: 1920px;
 	width: 90%;
 }
-.content.member-details .info {
-	margin: 30px auto 0;
-}
+/* .content.member-details .info {} */
 .content.member-details .info .shield-wrap {
 	position: relative;
 	width: 80px;
@@ -123,16 +123,16 @@ header span.current {
 	width: 40px;
 }
 .content.member-details .info div {
-	text-align: center;
+	font-weight: 700;
 	margin: 5px auto 0;
+	text-align: center;
 }
 .content.member-details .info div.team {
 	color: #2B7A78;
 	font-size: 22px;
-	font-weight: 700;
 }
 .content.member-details .chart {
-	background-color: #DEF2F1;
+	background-color: #FEFFFF;
 	border-radius: 15px;
 	height: 300px;
 	margin: 30px auto 0;

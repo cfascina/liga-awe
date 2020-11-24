@@ -47,6 +47,15 @@
 
 			return paramValue[1] || 0;
 		}
+		
+		function setMemberInfo(arrMember) {
+			let proStamp = arrMember.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+			
+			$('.info .shield-wrap img.shield').attr('src', arrMember.shield);
+			$('.info .shield-wrap img.shield').after(proStamp);
+			$('.info .team').append(arrMember.team);
+			$('.info .name').append(arrMember.name + ' (Cartoleiro desde ' + arrMember.first_year + ')');
+		}
 
 		getChartData($.urlParam('id'))
 			.then(function(res) {
@@ -67,15 +76,6 @@
 			});
 
 		
-
-		function setMemberInfo(arrMember) {
-			let proStamp = arrMember.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
-			
-			$('.info .shield-wrap img.shield').attr('src', arrMember.shield);
-			$('.info .shield-wrap img.shield').after(proStamp);
-			$('.info .team').append(arrMember.team);
-			$('.info .name').append(arrMember.name + ' (Cartoleiro desde ' + arrMember.first_year + ')');
-		}
 
 		// getMostUsedScheme($.urlParam('id'))
 		// 	.then(function(res) {

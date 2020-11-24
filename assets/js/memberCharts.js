@@ -116,7 +116,7 @@ function setChartPatrimony(arrRounds, arrPatrimony) {
                 intersect: false,
                 mode: 'index',
                 titleAlign: 'center',
-                titleFontColor: '#DEF2F1',
+                titleFontColor: '#FEFFFF',
                 custom: function(tooltip) {
                     tooltip.displayColors = false;
                 },
