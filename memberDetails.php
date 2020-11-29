@@ -63,7 +63,11 @@
 			return paramValue[1] || 0;
 		}
 
-		function setBoxPointsAndRounds(points, rounds) {
+		function setBoxPatrimony(average) {
+			$('.summary .patrimony span').append(average.replace('.', ',') + ' cartoletas');
+		}
+
+		function setBoxPoints(points, rounds) {
 			$('.summary .points-and-rounds span').append(
 				points.replace('.', ',') + 
 				' pontos em ' + rounds + ' rodadas'
@@ -100,10 +104,17 @@
 				console.log('Algo de errado não está certo!');
 				// console.log(err);
 			});
-
-		getPointsAndRounds($.urlParam('memberId'))
+		getPatrimony($.urlParam('memberId'))
 			.then(function(res) {
-				setBoxPointsAndRounds(res.points, res.rounds)
+				setBoxPatrimony(res.patrimony)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+		getPoints($.urlParam('memberId'))
+			.then(function(res) {
+				setBoxPoints(res.points, res.rounds)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');

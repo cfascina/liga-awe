@@ -55,10 +55,10 @@ async function getPatrimony(memberId) {
     return result;
 }
 
-async function getPointsAndRounds(memberId) {
+async function getPoints(memberId) {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getPointsAndRounds.php',
+        url: './api/members/getPoints.php',
         data: {
             memberId: memberId
         }

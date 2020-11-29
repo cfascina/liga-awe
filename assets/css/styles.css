@@ -132,7 +132,6 @@ header span.current {
 	font-size: 22px;
 }
 .content.member-details .summary {
-	background-color: #17252A;
 	display: flex;
 	margin: 30px auto 0;
 }
@@ -156,17 +155,6 @@ header span.current {
 	font-weight: 700;
 	text-align: center;
 }
-
-
-/* .content.member-details .summary .points {
-	background-color: #FEFFFF;
-}
-.content.member-details .summary .average {
-	background-color: #FEFFFF;
-}
-.content.member-details .summary .patrimony {
-	background-color: #FEFFFF;
-} */
 .content.member-details .chart {
 	background-color: #FEFFFF;
 	border-radius: 15px;
