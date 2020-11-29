@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="summary">
-			<div class="points">
+			<div class="points-and-rounds">
 				<h1>Pontuação</h1>
 				<span></span>
 			</div>
@@ -67,13 +67,13 @@
 			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
 		}
 
-		function setBoxPoints(points, rounds) {
-			$('.summary .points span').append(
+		function setBoxPointsAndRounds(points, rounds) {
+			$('.summary .points-and-rounds span').append(
 				points.replace('.', ',') + 
 				' pontos em ' + rounds + ' rodadas'
 			);
 		}
-		
+
 		function setProfile(data) {
 			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 			
@@ -83,7 +83,7 @@
 			$('.profile .name').append(data.name + ' (Cartoleiro desde ' + data.first_year + ')');
 		}
 
-		getChartData($.urlParam('id'))
+		getChartData($.urlParam('memberId'))
 			.then(function(res) {
 				splitChartData(res);
 			})
@@ -92,7 +92,7 @@
 				// console.log(err);
 			});
 
-		getMember($.urlParam('id'))
+		getMember($.urlParam('memberId'))
 			.then(function(res) {
 				setProfile(res);
 			})
@@ -101,10 +101,9 @@
 				// console.log(err);
 			});
 
-		getPointsInfo($.urlParam('id'))
+		getPointsAndRounds($.urlParam('memberId'))
 			.then(function(res) {
-				setBoxPoints(res.points, res.rounds)
-				setBoxAverage(res.average)
+				setBoxPointsAndRounds(res.points, res.rounds)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');

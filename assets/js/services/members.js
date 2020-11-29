@@ -43,10 +43,22 @@ async function getMostUsedScheme(cartolaId) {
     return result;
 }
 
-async function getPointsInfo(memberId) {
+async function getPatrimony(memberId) {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getPointsInfo.php',
+        url: './api/members/getPatrimony.php',
+        data: {
+            memberId: memberId
+        }
+    });
+
+    return result;
+}
+
+async function getPointsAndRounds(memberId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getPointsAndRounds.php',
         data: {
             memberId: memberId
         }
