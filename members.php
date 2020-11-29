@@ -19,6 +19,9 @@
 		<div class="list"></div>
 	</div>
 
+	<footer>
+		Desenvolvido por <a href="http://www.caiofascina.com.br/" target="_blank">Caio Fascina</a>
+	</footer>
 
 	<script src="./assets/js/libs/jquery.min.js"></script>
 	<script src="./assets/js/services/members.js"></script>

@@ -51,6 +51,24 @@ header span.current {
 	display: inline-block;
 }
 
+footer {
+	background-color: #2B7A78;
+	color: #FEFFFF;
+	font-size: 12px;
+	margin: 30px auto 0;
+	padding: 10px 5%;
+	text-align: right;
+}
+footer a {
+	color: #FEFFFF;
+	font-weight: 700;
+	text-decoration: none;
+}
+footer a:hover {
+	color: #17252A;
+}
+
+
 /*----------------------------*/
 /* Members
 /*----------------------------*/
