@@ -63,15 +63,15 @@
 			return paramValue[1] || 0;
 		}
 
-		function setBoxAverage(average) {
-			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
-		}
-
 		function setBoxPointsAndRounds(points, rounds) {
 			$('.summary .points-and-rounds span').append(
 				points.replace('.', ',') + 
 				' pontos em ' + rounds + ' rodadas'
 			);
+		}
+
+		function setBoxPointsAverage(average) {
+			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
 		}
 
 		function setProfile(data) {
@@ -104,6 +104,15 @@
 		getPointsAndRounds($.urlParam('memberId'))
 			.then(function(res) {
 				setBoxPointsAndRounds(res.points, res.rounds)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+
+		getPointsAverage($.urlParam('memberId'))
+			.then(function(res) {
+				setBoxPointsAverage(res.average)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');

@@ -66,3 +66,15 @@ async function getPointsAndRounds(memberId) {
 
     return result;
 }
+
+async function getPointsAverage(memberId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getPointsAverage.php',
+        data: {
+            memberId: memberId
+        }
+    });
+
+    return result;
+}
