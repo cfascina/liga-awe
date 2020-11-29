@@ -1,3 +1,15 @@
+async function getChartData(cartolaId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getChartData.php',
+        data: {
+            id: cartolaId
+        }
+    });
+
+    return result;
+}
+
 async function getMembers() {
     const result = await $.ajax({
         type: 'GET',
@@ -31,12 +43,12 @@ async function getMostUsedScheme(cartolaId) {
     return result;
 }
 
-async function getChartData(cartolaId) {
+async function getPointsInfo(memberId) {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getChartData.php',
+        url: './api/members/getPointsInfo.php',
         data: {
-            id: cartolaId
+            memberId: memberId
         }
     });
 

@@ -105,32 +105,68 @@ header span.current {
 	width: 90%;
 }
 /* .content.member-details .info {} */
-.content.member-details .info .shield-wrap {
+.content.member-details .profile .shield-wrap {
 	position: relative;
 	width: 80px;
 }
-.content.member-details .info .shield-wrap img.shield {
+.content.member-details .profile .shield-wrap img.shield {
 	display: block;
 	height: 85px;
 	margin: 0 auto;
 	width: 80px;
 }
-.content.member-details .info .shield-wrap img.pro {
+.content.member-details .profile .shield-wrap img.pro {
 	height: 20px;
 	position: absolute;
 	right: -20px;
 	top: -10px;
 	width: 40px;
 }
-.content.member-details .info div {
+.content.member-details .profile div {
 	font-weight: 700;
 	margin: 5px auto 0;
 	text-align: center;
 }
-.content.member-details .info div.team {
+.content.member-details .profile div.team {
 	color: #2B7A78;
 	font-size: 22px;
 }
+.content.member-details .summary {
+	background-color: #17252A;
+	display: flex;
+	margin: 30px auto 0;
+}
+.content.member-details .summary > div {
+	background-color: #FEFFFF;
+	border-radius: 15px;
+	flex: 1 1 0px;
+	padding: 15px;
+}
+.content.member-details .summary > div h1 {
+	color: #2B7A78;
+	font-size: 18px;
+	margin: 0 auto 15px;
+	text-align: center;
+}
+.content.member-details .summary > div.average {
+	margin: 0 15px;
+}
+.content.member-details .summary > div span {
+	display: block;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+/* .content.member-details .summary .points {
+	background-color: #FEFFFF;
+}
+.content.member-details .summary .average {
+	background-color: #FEFFFF;
+}
+.content.member-details .summary .patrimony {
+	background-color: #FEFFFF;
+} */
 .content.member-details .chart {
 	background-color: #FEFFFF;
 	border-radius: 15px;

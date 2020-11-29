@@ -18,12 +18,27 @@
 	</header>
 
 	<div class="content member-details">
-		<div class="info">
+		<div class="profile">
 			<div class="shield-wrap">
 				<img class="shield" />
 			</div>
 			<div class="team"></div>
 			<div class="name"></div>
+		</div>
+
+		<div class="summary">
+			<div class="points">
+				<h1>Pontuação</h1>
+				<span></span>
+			</div>
+			<div class="average">
+				<h1>Média</h1>
+				<span></span>
+			</div>
+			<div class="patrimony">
+				<h1>Patrimônio</h1>
+				<span></span>
+			</div>
 		</div>
 
 		<div class="chart points">
@@ -47,14 +62,25 @@
 
 			return paramValue[1] || 0;
 		}
+
+		function setBoxAverage(average) {
+			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
+		}
+
+		function setBoxPoints(points, rounds) {
+			$('.summary .points span').append(
+				points.replace('.', ',') + 
+				' pontos em ' + rounds + ' rodadas'
+			);
+		}
 		
-		function setMemberInfo(arrMember) {
-			let proStamp = arrMember.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+		function setProfile(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 			
-			$('.info .shield-wrap img.shield').attr('src', arrMember.shield);
-			$('.info .shield-wrap img.shield').after(proStamp);
-			$('.info .team').append(arrMember.team);
-			$('.info .name').append(arrMember.name + ' (Cartoleiro desde ' + arrMember.first_year + ')');
+			$('.profile .shield-wrap img.shield').attr('src', data.shield);
+			$('.profile .shield-wrap img.shield').after(proStamp);
+			$('.profile .team').append(data.team);
+			$('.profile .name').append(data.name + ' (Cartoleiro desde ' + data.first_year + ')');
 		}
 
 		getChartData($.urlParam('id'))
@@ -68,24 +94,22 @@
 
 		getMember($.urlParam('id'))
 			.then(function(res) {
-				setMemberInfo(res[0]);
+				setProfile(res);
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');
 				// console.log(err);
 			});
 
-		
-
-		// getMostUsedScheme($.urlParam('id'))
-		// 	.then(function(res) {
-		// 		// console.log(res);
-		// 		// Box de Esquemas Táticos;
-		// 	})
-		// 	.catch(function(err) {
-		// 		console.log('Something went wrong.');
-		// 		// console.log(err);
-		// 	});
+		getPointsInfo($.urlParam('id'))
+			.then(function(res) {
+				setBoxPoints(res.points, res.rounds)
+				setBoxAverage(res.average)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
 	</script>
 </body>
 
