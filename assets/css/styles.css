@@ -74,7 +74,6 @@ footer a:hover {
 /*----------------------------*/
 .content.members {
 	margin: 30px auto 0;
-	max-width: 1920px;
 	width: 90%;
 }
 /* .content.members .list {} */
@@ -119,7 +118,6 @@ footer a:hover {
 /*----------------------------*/
 .content.member-details {
 	margin: 30px auto 0;
-	max-width: 1920px;
 	width: 90%;
 }
 /* .content.member-details .info {} */
@@ -189,4 +187,16 @@ footer a:hover {
 	font-size: 18px;
 	margin: 0 auto 15px;
 	text-align: center;
+}
+
+/*----------------------------*/
+/* Classification
+/*----------------------------*/
+.content.classification {
+	margin: 30px auto 0;
+	width: 90%;
+}
+.content.classification table img.shield {
+	height: 40px !important;
+	width: 40px;
 }
