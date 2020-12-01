@@ -1,0 +1,55 @@
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+}
+table.dataTable  {
+    background-color: #FEFFFF;
+    border-radius: 15px;
+    border-spacing: 0;
+    box-sizing: content-box;
+    color: #17252A;
+    clear: both;
+    margin: 0 auto;
+    width: 100%;
+}
+table.dataTable thead th {
+    color: #2B7A78;
+    cursor: pointer;
+    border-bottom: 1px solid #2B7A78;
+    padding: 15px;
+}
+table.dataTable thead th:first-of-type {
+	text-align: left;
+}
+table.dataTable tbody tr.odd {
+    background-color: #DEF2F1;
+}
+table.dataTable tbody tr.even {
+    background-color: #FEFFFF;
+}
+table.dataTable tbody tr:hover {
+    background-color: #2B7A78;
+    color: #FEFFFF;
+    border-radius: 15px;
+}
+table.dataTable tbody td {
+    padding: 10px 15px;
+    text-align: center;
+}
+table.dataTable tbody td:first-of-type {
+    align-items: center;
+    color: #17252A;
+    display: flex;
+    justify-content: flex-start;
+}
+table.dataTable tbody td img.shield {
+	height: 32px;
+	width: 32px;
+}
+table.dataTable tbody td span.team {
+    margin-left: 15px;
+}
+table.dataTable tbody td span.name {
+    font-size: 14px;
+    margin-left: 5px;
+}

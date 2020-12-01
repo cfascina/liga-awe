@@ -5,9 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liga AWE</title>
-    <!-- REALIZAR ESTILIZAÇÃO PRÓRIA -->
-	<!-- <link rel="stylesheet" href="./assets/css/libs/datatables.min.css"> -->
 	<link rel="stylesheet" href="./assets/css/styles.css">
+	<link rel="stylesheet" href="./assets/css/datatables.css">
 </head>
 
 <body>
@@ -18,7 +17,7 @@
 	</header>
 
 	<div class="content classification">
-        <table id="classification" class="display" width="100%"></table>
+        <table class="classification"></table>
 	</div>
 
 	<footer>
@@ -30,9 +29,10 @@
 	<script src="./assets/js/services/classification.js"></script>
 	<script>
         function setClassificationTable(data) {
-			$('#classification').DataTable({
+			$('table.classification').DataTable({
                 data: data,
                 'bInfo': false,
+                'bFilter': false,
                 'paging': false,
                 columns: [
                     {data: 'team',   title: 'Time'   },
@@ -43,17 +43,16 @@
         }
 
         function handleClassificationData(data) {
-            console.log('handleClassificationData');
             arrTable = [];
 
             data.forEach(member => {
                 arrTable.push({
                     team: 
                         '<img src="' + member.shield + '" class="shield" />' + 
-                        member.team + 
-                        ' (' + member.name + ')',
-                    points: member.points,
-                    total: member.total
+                        '<span class="team">' + member.team + '</span>' +
+                        '<span class="name"> (' + member.name + ')</span>',
+                    points: member.points.replace('.', ','),
+                    total: member.total.replace('.', ',')
                 });
             });
 
