@@ -35,9 +35,10 @@
                 'bFilter': false,
                 'paging': false,
                 columns: [
-                    {data: 'team',   title: 'Time'   },
-                    {data: 'points', title: 'Pontos' },
-                    {data: 'total',  title: 'Total'  }
+                    {data: 'team',                title: 'Time'             },
+                    {data: 'points',              title: 'Pontos'           },
+                    {data: 'total_round',         title: 'Total na Rodada'  },
+                    {data: 'total_championship',  title: 'Total Geral'      }
                 ]
             });
         }
@@ -52,14 +53,15 @@
                         '<span class="team">' + member.team + '</span>' +
                         '<span class="name"> (' + member.name + ')</span>',
                     points: member.points.replace('.', ','),
-                    total: member.total.replace('.', ',')
+                    total_round: member.total_round.replace('.', ','),
+                    total_championship: member.total_championship.replace('.', ',')
                 });
             });
 
             setClassificationTable(arrTable);
         }
 
-		getClassification(1)
+		getClassification(5)
 			.then(function(res) {
                 handleClassificationData(res);
 			})

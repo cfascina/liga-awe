@@ -9,19 +9,22 @@ $roundId = isset($_GET['roundId']) ? $_GET['roundId'] : die();
 
 $sqlQuery = "
     SELECT 
+        R.id_round, 
         M.shield,
         M.team,
         M.name,
-        R.id_round, 
-        R.points, 
-        R.total 
+        R.points,
+        R.total AS total_round,
+        (
+            SELECT SUM(points) 
+            FROM rounds 
+            WHERE id_member = M.id_cartola
+        ) AS total_championship
     FROM rounds R
     INNER JOIN members M ON
         M.id_cartola = R.id_member
     WHERE R.id_round = ?
-    ORDER BY 
-        R.id_round, 
-        R.points DESC
+    ORDER BY R.points DESC
 ";
 
 $result = $conn->prepare($sqlQuery);
