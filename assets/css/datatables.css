@@ -1,7 +1,14 @@
+/*----------------------------*/
+/* Wrapper
+/*----------------------------*/
 .dataTables_wrapper {
     position: relative;
     clear: both;
 }
+
+/*----------------------------*/
+/* table
+/*----------------------------*/
 table.dataTable  {
     background-color: #FEFFFF;
     border-radius: 15px;
@@ -13,15 +20,23 @@ table.dataTable  {
     overflow: hidden;
     width: 100%;
 }
+
+/*----------------------------*/
+/* thead
+/*----------------------------*/
 table.dataTable thead th {
     color: #2B7A78;
     cursor: pointer;
     border-bottom: 1px solid #2B7A78;
     padding: 15px;
 }
-table.dataTable thead th:first-of-type {
+table.dataTable thead th:nth-of-type(2) {
 	text-align: left;
 }
+
+/*----------------------------*/
+/* tbody
+/*----------------------------*/
 table.dataTable tbody tr.odd {
     background-color: #DEF2F1;
 }
@@ -37,11 +52,14 @@ table.dataTable tbody td {
     padding: 10px 15px;
     text-align: center;
 }
-table.dataTable tbody td:first-of-type {
+table.dataTable tbody td:nth-of-type(2) {
     align-items: center;
     color: #17252A;
     display: flex;
     justify-content: flex-start;
+}
+table.dataTable tbody td span.position {
+	font-weight: 700;
 }
 table.dataTable tbody td img.shield {
 	height: 32px;

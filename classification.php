@@ -33,8 +33,10 @@
                 data: data,
                 'bInfo': false,
                 'bFilter': false,
+                'order': [],
                 'paging': false,
                 columns: [
+                    {data: 'position',            title: 'Posição'          },
                     {data: 'team',                title: 'Time'             },
                     {data: 'points',              title: 'Pontos'           },
                     {data: 'total_round',         title: 'Total na Rodada'  },
@@ -46,8 +48,9 @@
         function handleClassificationData(data) {
             arrTable = [];
 
-            data.forEach(member => {
+            $.each(data, function(index, member) {
                 arrTable.push({
+                    position: '<span class="position">' + (index + 1) + '</span>',
                     team: 
                         '<img src="' + member.shield + '" class="shield" />' + 
                         '<span class="team">' + member.team + '</span>' +
