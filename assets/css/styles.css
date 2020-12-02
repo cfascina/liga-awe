@@ -1,32 +1,34 @@
-/* #17252A */
-/* #2B7A78 */
-/* #3AAFA9 */
-/* #DEF2F1 */
-/* #FEFFFF */
+/* #FF5700 - ORANGE*/
+/* #692705 - DARK BROWN */
+/* #CF8B64 - BROWN */
+/* #E5C7BC - LIGHT BROWN */
+/* #FFEEE4 - SUPER LIGHT BROWN */
+/* #FFFFFF - WHITE */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
-	background-color: #DEF2F1;
-	color: #17252A;
+	background-color: #FFFFFF;
+	color: #692705;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	margin: 0;
 }
 
 header {
-	background-color: #2B7A78;
+	background-color: #692705;
 	font-size: 0;
 	margin: 0;
 	padding: 15px 5%;
 }
 header h1 {
-	color: #FEFFFF;
+	color: #FFEEE4;
 	display: inline-block;
 	font-size: 28px;
 	margin: 0;
 }
 header span {
-	color: #FEFFFF;
+	color: #FFEEE4;
 	display: inline-block;
 	font-size: 16px;
 	margin: 0 5px;
@@ -38,7 +40,7 @@ header span.sep:first-of-type {
 	margin: 0 10px 0 15px;
 }
 header a {
-	color: #FEFFFF;
+	color: #FFEEE4;
 	display: inline-block;
 	font-size: 16px;
 	margin: 0 5px;
@@ -48,25 +50,25 @@ header a:hover {
 	text-decoration: underline;
 }
 header span.current {
-	color: #FEFFFF;
+	color: #FFEEE4;
 	display: inline-block;
 }
 
 footer {
-	background-color: #2B7A78;
-	color: #FEFFFF;
+	background-color: #692705;
+	color: #FFEEE4;
 	font-size: 12px;
 	margin: 30px auto 0;
 	padding: 10px 5%;
 	text-align: right;
 }
 footer a {
-	color: #FEFFFF;
+	color: #FFEEE4;
 	font-weight: 700;
 	text-decoration: none;
 }
 footer a:hover {
-	color: #17252A;
+	color: #FF5700;
 }
 
 
@@ -79,9 +81,9 @@ footer a:hover {
 }
 /* .content.members .list {} */
 .content.members .list a {
-	background-color: #FEFFFF;
+	background-color: #E5C7BC;
 	border-radius: 15px;
-	color: #17252A;
+	color: #692705;
 	align-items: center;
 	display: flex;
 	justify-content: flex-start;
@@ -93,8 +95,7 @@ footer a:hover {
 	margin-top: 0;
 }
 .content.members .list a:hover {
-	background-color: #3AAFA9;
-	color: #FEFFFF;
+	background-color: #FF5700;
 }
 .content.members .list a img.shield {
 	height: 40px;
@@ -145,21 +146,24 @@ footer a:hover {
 	text-align: center;
 }
 .content.member-details .profile div.team {
-	color: #2B7A78;
+	color: #692705;
 	font-size: 22px;
+}
+.content.member-details .profile div.name {
+	color: #CF8B64;
 }
 .content.member-details .summary {
 	display: flex;
 	margin: 30px auto 0;
 }
 .content.member-details .summary > div {
-	background-color: #FEFFFF;
+	background-color: #FFEEE4;
 	border-radius: 15px;
 	flex: 1 1 0px;
 	padding: 15px;
 }
 .content.member-details .summary > div h1 {
-	color: #2B7A78;
+	color: #692705;
 	font-size: 18px;
 	margin: 0 auto 15px;
 	text-align: center;
@@ -169,11 +173,10 @@ footer a:hover {
 }
 .content.member-details .summary > div span {
 	display: block;
-	font-weight: 700;
 	text-align: center;
 }
 .content.member-details .chart {
-	background-color: #FEFFFF;
+	background-color: #FFEEE4;
 	border-radius: 15px;
 	height: 300px;
 	margin: 30px auto 0;
@@ -184,7 +187,7 @@ footer a:hover {
 	margin: auto;
 }
 .content.member-details .chart h1 {
-	color: #2B7A78;
+	color: #692705;
 	font-size: 18px;
 	margin: 0 auto 15px;
 	text-align: center;
