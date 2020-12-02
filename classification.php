@@ -33,7 +33,7 @@
                 data: data,
                 'bInfo': false,
                 'bFilter': false,
-                'order': [],
+                'order': [0, 'asc'],
                 'paging': false,
                 columns: [
                     {data: 'position',            title: 'Posição'          },

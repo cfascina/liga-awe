@@ -31,7 +31,32 @@ table.dataTable thead th {
     padding: 15px;
 }
 table.dataTable thead th:nth-of-type(2) {
-	text-align: left;
+    padding-left: 25px;
+    text-align: left;
+}
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+table.dataTable thead .sorting {
+	background-image: url('../images/icons-sort/both.png')
+}
+table.dataTable thead .sorting_asc {
+	background-image: url('../images/icons-sort/asc.png')
+}
+table.dataTable thead .sorting_desc {
+	background-image: url('../images/icons-sort/desc.png')
+}
+table.dataTable thead .sorting_asc_disabled {
+	background-image: url('../images/icons-sort/asc-disabled.png')
+}
+table.dataTable thead .sorting_desc_disabled {
+	background-image: url('../images/icons-sort/desc-disabled.png')
 }
 
 /*----------------------------*/
