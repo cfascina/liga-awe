@@ -36,11 +36,11 @@
                 'order': [0, 'asc'],
                 'paging': false,
                 columns: [
-                    {data: 'position',            title: 'Posição'          },
-                    {data: 'team',                title: 'Time'             },
-                    {data: 'points',              title: 'Pontos'           },
-                    {data: 'total_round',         title: 'Total na Rodada'  },
-                    {data: 'total_championship',  title: 'Total Geral'      }
+                    {data: 'position',            title: '#'           },
+                    {data: 'team',                title: 'Time'        },
+                    {data: 'points',              title: 'Pontos'      },
+                    {data: 'total_round',         title: 'Pós Rodada'  },
+                    {data: 'total_championship',  title: 'Total Geral' }
                 ]
             });
         }

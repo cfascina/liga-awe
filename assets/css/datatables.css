@@ -72,7 +72,7 @@ table.dataTable tbody tr:hover {
     border-radius: 15px;
 }
 table.dataTable tbody td {
-    padding: 10px 15px;
+    padding: 5px;
     text-align: center;
 }
 table.dataTable tbody td:nth-of-type(2) {
@@ -85,8 +85,8 @@ table.dataTable tbody td span.position {
 	font-weight: 700;
 }
 table.dataTable tbody td img.shield {
-	height: 32px;
-	width: 32px;
+	height: 24px;
+	width: 24px;
 }
 table.dataTable tbody td span.team {
     margin-left: 15px;
