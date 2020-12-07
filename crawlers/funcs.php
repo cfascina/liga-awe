@@ -361,10 +361,10 @@ function addRound($roundData) {
             :memberId,
             :schemeId,
             :patrimony,
-            :teamValue,
-            :points,
-            :total
-        )
+			:teamValue,
+			IFNULL(:points, DEFAULT(total)),
+			IFNULL(:total, DEFAULT(total))
+		)
 	";
 	
 	$result = $conn->prepare($sqlQuery);
