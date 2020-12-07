@@ -20,42 +20,44 @@ body {
 
 header {
 	background-color: #692705;
-	font-size: 0;
-	margin: 0;
-	padding: 15px 5%;
+	padding: 0 5%;
 }
 header h1 {
+	border-right: 1px solid #FFEEE4;
 	color: #FFEEE4;
-	display: inline-block;
+	display: block;
+	float: left;
 	font-size: 28px;
+	height: 50px;
+	line-height: 50px;
 	margin: 0;
+	padding: 0 15px 0 0;
 }
-header span {
+header nav {
+	float: left;
+}
+header nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+header nav ul li {
+	float: left;
+}
+header nav ul li a {
+	display: block;
 	color: #FFEEE4;
-	display: inline-block;
-	font-size: 16px;
-	margin: 0 5px;
-}
-/* header span.sep {} */
-header span.sep:first-of-type {
-	font-size: 28px;
 	font-weight: 700;
-	margin: 0 10px 0 15px;
-}
-header a {
-	color: #FFEEE4;
-	display: inline-block;
-	font-size: 16px;
-	margin: 0 5px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 15px;
 	text-decoration: none;
 }
-header a:hover {
-	text-decoration: underline;
+header nav ul li a:hover {
+	background-color: #CF8B64;
+	color: #692705;
 }
-header span.current {
-	color: #FFEEE4;
-	display: inline-block;
-}
+
 
 footer {
 	background-color: #692705;

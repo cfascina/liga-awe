@@ -9,13 +9,7 @@
 </head>
 
 <body>
-	<header>
-		<h1>Liga AWE</h1>
-		<span class="sep">|</span>
-		<a href="members.php">Membros</a>
-		<span class="sep">></span>
-		<span class="current">Detalhes</span>
-	</header>
+	<?php require_once('partials/header.html'); ?>
 
 	<div class="content member-details">
 		<div class="profile">

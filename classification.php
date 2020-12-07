@@ -10,11 +10,7 @@
 </head>
 
 <body>
-	<header>
-		<h1>Liga AWE</h1>
-		<span class="sep">|</span>
-		<span class="current">Classificação</span>
-	</header>
+	<?php require_once('partials/header.html'); ?>
 
 	<div class="content classification">
         <div class="select-wrap">
