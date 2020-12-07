@@ -14,6 +14,9 @@ body {
 	font-size: 16px;
 	margin: 0;
 }
+.clear {
+	clear: both;
+}
 
 header {
 	background-color: #692705;
@@ -201,6 +204,7 @@ footer a:hover {
 	width: 90%;
 }
 .content.classification .select-wrap {
+	float: left;
 	position: relative;
 	width: 250px;
 }
@@ -232,4 +236,13 @@ footer a:hover {
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+.content.classification .selected-round {
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 15px;
+}
+.content.classification .selected-round span {
+	font-weight: 700;
 }

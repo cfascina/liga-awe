@@ -47,6 +47,9 @@
             </select>
         </div>
 
+        <div class="selected-round">Rodada selecionada: <span></span></div>
+        <div class="clear"></div>
+
         <table class="classification"></table>
 	</div>
 
@@ -68,8 +71,10 @@
                     })
                     .catch(function(err) {
                         console.log('Something went wrong.');
-                        console.log(err);
+                        // console.log(err);
                     });
+
+                setSelectedRound(roundId);
             }
         })
 
@@ -108,6 +113,10 @@
                     {data: 'total_championship',  title: 'Total Geral' }
                 ]
             });
+        }
+
+        function setSelectedRound(idRound) {
+            $('.selected-round span').empty().append(idRound);
         }
 	</script>
 </body>
