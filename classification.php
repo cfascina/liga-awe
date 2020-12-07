@@ -17,6 +17,19 @@
 	</header>
 
 	<div class="content classification">
+        <select class="slt-round">
+            <option value="0" selected>Selecione a Rodada</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+
         <table class="classification"></table>
 	</div>
 
@@ -28,25 +41,23 @@
 	<script src="./assets/js/libs/datatables.min.js"></script>
 	<script src="./assets/js/services/classification.js"></script>
 	<script>
-        function setClassificationTable(data) {
-			$('table.classification').DataTable({
-                data: data,
-                'bInfo': false,
-                'bFilter': false,
-                'order': [0, 'asc'],
-                'paging': false,
-                columns: [
-                    {data: 'position',            title: '#'           },
-                    {data: 'team',                title: 'Time'        },
-                    {data: 'points',              title: 'Pontos'      },
-                    {data: 'total_round',         title: 'Pós Rodada'  },
-                    {data: 'total_championship',  title: 'Total Geral' }
-                ]
-            });
-        }
+        $('.slt-round').on('change', function() {
+            let roundId = this.value;
+
+            if(roundId != 0) {
+                getClassification(roundId)
+                    .then(function(res) {
+                        handleClassificationData(res);
+                    })
+                    .catch(function(err) {
+                        console.log('Something went wrong.');
+                        console.log(err);
+                    });
+            }
+        })
 
         function handleClassificationData(data) {
-            arrTable = [];
+            let arrTable = [];
 
             $.each(data, function(index, member) {
                 arrTable.push({
@@ -64,14 +75,23 @@
             setClassificationTable(arrTable);
         }
 
-		getClassification(5)
-			.then(function(res) {
-                handleClassificationData(res);
-			})
-			.catch(function(err) {
-				console.log('Something went wrong.');
-				// console.log(err);
-			});
+        function setClassificationTable(data) {
+            $('table.classification').DataTable({
+                destroy: true,
+                data: data,
+                'bInfo': false,
+                'bFilter': false,
+                'order': [0, 'asc'],
+                paging: false,
+                columns: [
+                    {data: 'position',            title: '#'           },
+                    {data: 'team',                title: 'Time'        },
+                    {data: 'points',              title: 'Pontos'      },
+                    {data: 'total_round',         title: 'Pós Rodada'  },
+                    {data: 'total_championship',  title: 'Total Geral' }
+                ]
+            });
+        }
 	</script>
 </body>
 
