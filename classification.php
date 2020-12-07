@@ -20,7 +20,6 @@
         <div class="select-wrap">
             <label class="rounds">Selecione a rodada</label>
             <select class="slt-round">
-                <option value="0" selected>-</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -62,8 +61,10 @@
 	<script src="./assets/js/services/classification.js"></script>
 	<script>
         $('.slt-round').on('change', function() {
-            let roundId = this.value;
+            changeRound(this.value);
+        });
 
+        function changeRound(roundId) {
             if(roundId != 0) {
                 getClassification(roundId)
                     .then(function(res) {
@@ -76,7 +77,7 @@
 
                 setSelectedRound(roundId);
             }
-        })
+        }
 
         function handleClassificationData(data) {
             let arrTable = [];
@@ -118,6 +119,8 @@
         function setSelectedRound(idRound) {
             $('.selected-round span').empty().append(idRound);
         }
+
+        changeRound(1);
 	</script>
 </body>
 
