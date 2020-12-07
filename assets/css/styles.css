@@ -200,3 +200,36 @@ footer a:hover {
 	margin: 30px auto 0;
 	width: 90%;
 }
+.content.classification .select-wrap {
+	position: relative;
+	width: 250px;
+}
+.content.classification .select-wrap select,
+.content.classification .select-wrap label {
+	color: #692705;
+	display: block;
+}
+.content.classification .select-wrap select {
+	cursor: pointer;
+	height: 40px;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.content.classification .select-wrap select option {
+	font-size: 18px;
+}
+.content.classification .select-wrap label {
+	background-color: #E5C7BC;
+	border-radius: 10px;
+	padding: 10px;
+	position: relative;
+}
+.content.classification .select-wrap label::after {
+	content: '▼';
+	padding: 10px 15px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}

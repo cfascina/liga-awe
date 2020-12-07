@@ -2,15 +2,16 @@
 /* Wrapper
 /*----------------------------*/
 .dataTables_wrapper {
-    position: relative;
     clear: both;
+    margin: 30px auto 0;
+    position: relative;
 }
 
 /*----------------------------*/
 /* table
 /*----------------------------*/
 table.dataTable  {
-    border-radius: 15px;
+    border-radius: 10px;
     border-spacing: 0;
     box-sizing: content-box;
     color: #692705;
@@ -69,10 +70,10 @@ table.dataTable tbody tr.even {
 }
 table.dataTable tbody tr:hover {
     background-color: #FF5700;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 table.dataTable tbody td {
-    padding: 5px;
+    padding: 10px 0;
     text-align: center;
 }
 table.dataTable tbody td:nth-of-type(2) {

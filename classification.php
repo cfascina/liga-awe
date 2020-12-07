@@ -17,18 +17,20 @@
 	</header>
 
 	<div class="content classification">
-        <select class="slt-round">
-            <option value="0" selected>Selecione a Rodada</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
+        <div class="select-wrap">
+            <label class="rounds">Selecione a rodada</label>
+            <select class="slt-round">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
 
         <table class="classification"></table>
 	</div>
@@ -51,7 +53,7 @@
                     })
                     .catch(function(err) {
                         console.log('Something went wrong.');
-                        console.log(err);
+                        // console.log(err);
                     });
             }
         })
