@@ -21,11 +21,11 @@
 				<h1>Média</h1>
 				<span></span>
             </div>
-            <div class="points-higher">
+            <div class="highest-score">
 				<h1>Maior Pontuação</h1>
 				<span></span>
             </div>
-            <div class="points-lowesr">
+            <div class="lowest-score">
 				<h1>Menor Pontuação</h1>
 				<span></span>
             </div>
@@ -43,6 +43,24 @@
         function setBoxMembersTotal(number) {
 			$('.info .total span').append(number);
         }
+
+        function setBoxHighestScore(data) {
+			$('.info .highest-score span').append(
+				data.points.replace('.', ',') + ' pontos <br>' + 
+				data.team + '<br>' + 
+				data.name + '<br> na rodada ' +
+				data.id_round
+			);
+        }
+
+		function setBoxLowestScore(data) {
+			$('.info .lowest-score span').append(
+				data.points.replace('.', ',') + ' pontos <br>' + 
+				data.team + '<br>' + 
+				data.name + '<br> na rodada ' +
+				data.id_round
+			);
+		}
         
         getTotal()
 			.then(function(res) {
@@ -51,7 +69,28 @@
 			.catch(function(err) {
 				console.log('Something went wrong.');
 				// console.log(err);
-			});
+            });
+        
+		getHighestScore()
+			.then(function(res) {
+				setBoxHighestScore(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				console.log(err);
+            });
+        
+		getLowestScore()
+			.then(function(res) {
+				setBoxLowestScore(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				console.log(err);
+            });
+            
+
+            
     </script>
 </body>
 
