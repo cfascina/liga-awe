@@ -22,7 +22,7 @@ header {
 	background-color: #692705;
 	padding: 0 5%;
 }
-header h1 {
+header > a {
 	border-right: 1px solid #FFEEE4;
 	color: #FFEEE4;
 	display: block;
@@ -58,7 +58,6 @@ header nav ul li a:hover {
 	color: #692705;
 }
 
-
 footer {
 	background-color: #692705;
 	color: #FFEEE4;
@@ -76,6 +75,40 @@ footer a:hover {
 	color: #FF5700;
 }
 
+/*----------------------------*/
+/* Index
+/*----------------------------*/
+.content.index {
+	margin: 30px auto 0;
+	width: 90%;
+}
+.content.index .info {
+	display: flex;
+	margin: 30px auto 0;
+}
+.content.index .info > div {
+	background-color: #FFEEE4;
+	border-radius: 15px;
+	flex: 1 1 0px;
+	margin: 0 15px;
+	padding: 15px;
+}
+.content.index .info > div:first-of-type {
+	margin-left: 0;
+}
+.content.index .info > div:last-of-type {
+	margin-right: 0;
+}
+.content.index .info > div h1 {
+	color: #692705;
+	font-size: 18px;
+	margin: 0 auto 15px;
+	text-align: center;
+}
+.content.index .info > div span {
+	display: block;
+	text-align: center;
+}
 
 /*----------------------------*/
 /* Members

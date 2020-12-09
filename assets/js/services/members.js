@@ -78,3 +78,12 @@ async function getPointsAverage(memberId) {
 
     return result;
 }
+
+async function getTotal() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getTotal.php'
+    });
+
+    return result;
+}
