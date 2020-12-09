@@ -46,10 +46,8 @@
 		</div>
 	</div>
 
-	<footer>
-		Desenvolvido por <a href="http://www.caiofascina.com.br/" target="_blank">Caio Fascina</a>
-	</footer>
-
+	<?php require_once('partials/footer.html'); ?>
+	
 	<script src="./assets/js/libs/jquery.min.js"></script>
 	<script src="./assets/js/libs/chart.min.js"></script>
 	<script src="./assets/js/services/members.js"></script>

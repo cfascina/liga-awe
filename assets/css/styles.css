@@ -7,11 +7,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+html,
 body {
 	background-color: #FFFFFF;
 	color: #692705;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
+	height: 100%;
 	margin: 0;
 }
 .clear {
@@ -56,9 +58,11 @@ footer .content {
 	box-sizing: border-box;
 	color: #FFEEE4;
 	font-size: 12px;
+	height: 35px;
+    line-height: 35px;
 	margin: 30px auto 0;
 	max-width: 1280px;
-	padding: 10px 15px;
+	padding: 0 15px;
 	text-align: right;
 }
 footer .content a {
@@ -75,8 +79,9 @@ footer .content a:hover {
 /*----------------------------*/
 .content.index {
 	box-sizing: border-box;
-	margin: 30px auto 0;
+	margin: 30px auto -35px;
 	max-width: 1280px;
+	min-height: calc(100vh - 110px);
 	padding: 0 15px;
 }
 .content.index .info {
@@ -112,8 +117,9 @@ footer .content a:hover {
 /*----------------------------*/
 .content.members {
 	box-sizing: border-box;
-	margin: 30px auto 0;
+	margin: 30px auto -35px;
 	max-width: 1280px;
+	min-height: calc(100vh - 110px);
 	padding: 0 15px;
 }
 /* .content.members .list {} */
