@@ -14,12 +14,16 @@
 	<div class="content index">
         <div class="info">
             <div class="count">
-				<h1>Membros</h1>
-				<span></span>
+				<h1></h1>
+				<span>membros na liga</span>
 			</div>
-            <div class="average">
-				<h1>Média</h1>
-				<span></span>
+            <div class="average-points">
+				<h1></h1>
+				<span>é a média de pontos da liga</span>
+			</div>
+			<div class="average-patrimony">
+				<h1></h1>
+				<span>é a média de patrimônio da liga</span>
 			</div>
 		</div>
 		<div class="info">
@@ -35,19 +39,22 @@
         </div>
 	</div>
 
-	<footer>
-		Desenvolvido por <a href="http://www.caiofascina.com.br/" target="_blank">Caio Fascina</a>
-	</footer>
+	<?php require_once('partials/footer.html'); ?>
 
 	<script src="./assets/js/libs/jquery.min.js"></script>
     <script src="./assets/js/services/members.js"></script>
     <script>
         function setBoxMembersCount(count) {
-			$('.info .count span').append(count);
+			$('.info .count h1').append(count);
 		}
 
-		function setBoxMembersAverage(average) {
-			$('.info .average span').append(average.replace('.', ','));
+		function setBoxMembersAveragePoints(average) {
+			console.log(average);
+			$('.info .average-points h1').append(average.replace('.', ','));
+        }
+
+		function setBoxMembersAveragePatrimony(average) {
+			$('.info .average-patrimony h1').append(average.replace('.', ','));
         }
 
         function setBoxMembersHighestScore(data) {
@@ -75,9 +82,18 @@
 				// console.log(err);
 			});
 			
-		getMembersAverage()
+		getMembersAveragePatrimony()
 			.then(function(res) {
-				setBoxMembersAverage(res.average);
+				setBoxMembersAveragePatrimony(res.average);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+			
+		getMembersAveragePoints()
+			.then(function(res) {
+				setBoxMembersAveragePoints(res.average);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');
@@ -100,7 +116,7 @@
 			.catch(function(err) {
 				console.log('Something went wrong.');
 				// console.log(err);
-            });
+			});
     </script>
 </body>
 

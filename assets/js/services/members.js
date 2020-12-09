@@ -67,10 +67,19 @@ async function getMembers() {
     return result;
 }
 
-async function getMembersAverage() {
+async function getMembersAveragePatrimony() {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getMembersAverage.php'
+        url: './api/members/getMembersAveragePatrimony.php'
+    });
+
+    return result;
+}
+
+async function getMembersAveragePoints() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersAveragePoints.php'
     });
 
     return result;
