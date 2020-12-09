@@ -10,6 +10,24 @@ async function getChartData(cartolaId) {
     return result;
 }
 
+async function getHighestScore() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getHighestScore.php'
+    });
+
+    return result;
+}
+
+async function getLowestScore() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getLowestScore.php'
+    });
+
+    return result;
+}
+
 async function getMembers() {
     const result = await $.ajax({
         type: 'GET',
