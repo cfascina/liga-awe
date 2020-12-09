@@ -9,11 +9,11 @@ function splitChartData(chartData) {
         arrPatrimony.push(roundData.patrimony);
     });
 
-    setChartPoints(arrRounds, arrPoints);
-    setChartPatrimony(arrRounds, arrPatrimony);
+    setMemberChartPoints(arrRounds, arrPoints);
+    setMemberChartPatrimony(arrRounds, arrPatrimony);
 }
 
-function setChartPoints(arrRounds, arrPoints) {
+function setMemberChartPoints(arrRounds, arrPoints) {
     var ctx = new Chart($('#ctx-points'), {
         type: 'line',
         data: {
@@ -92,7 +92,7 @@ function setChartPoints(arrRounds, arrPoints) {
     });
 }
 
-function setChartPatrimony(arrRounds, arrPatrimony) {
+function setMemberChartPatrimony(arrRounds, arrPatrimony) {
     var ctx = new Chart($('#ctx-patrimony'), {
         type: 'line',
         data: {

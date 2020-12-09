@@ -1,7 +1,7 @@
-async function getChartData(cartolaId) {
+async function getMember(cartolaId) {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getChartData.php',
+        url: './api/members/getMember.php',
         data: {
             id: cartolaId
         }
@@ -10,19 +10,49 @@ async function getChartData(cartolaId) {
     return result;
 }
 
-async function getHighestScore() {
+async function getMemberAverage(memberId) {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getHighestScore.php'
+        url: './api/members/getMemberAverage.php',
+        data: {
+            memberId: memberId
+        }
     });
 
     return result;
 }
 
-async function getLowestScore() {
+async function getMemberChartData(cartolaId) {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getLowestScore.php'
+        url: './api/members/getMemberChartData.php',
+        data: {
+            id: cartolaId
+        }
+    });
+
+    return result;
+}
+
+async function getMemberPatrimony(memberId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMemberPatrimony.php',
+        data: {
+            memberId: memberId
+        }
+    });
+
+    return result;
+}
+
+async function getMemberPoints(memberId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMemberPoints.php',
+        data: {
+            memberId: memberId
+        }
     });
 
     return result;
@@ -37,17 +67,43 @@ async function getMembers() {
     return result;
 }
 
-async function getMember(cartolaId) {
+async function getMembersAverage() {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getMember.php',
-        data: {
-            id: cartolaId
-        }
+        url: './api/members/getMembersAverage.php'
     });
 
     return result;
 }
+
+async function getMembersCount() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersCount.php'
+    });
+
+    return result;
+}
+
+async function getMembersHighestScore() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersHighestScore.php'
+    });
+
+    return result;
+}
+
+async function getMembersLowestScore() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersLowestScore.php'
+    });
+
+    return result;
+}
+
+/*************************/
 
 async function getMostUsedScheme(cartolaId) {
     const result = await $.ajax({
@@ -56,51 +112,6 @@ async function getMostUsedScheme(cartolaId) {
         data: {
             id: cartolaId
         }
-    });
-
-    return result;
-}
-
-async function getPatrimony(memberId) {
-    const result = await $.ajax({
-        type: 'GET',
-        url: './api/members/getPatrimony.php',
-        data: {
-            memberId: memberId
-        }
-    });
-
-    return result;
-}
-
-async function getPoints(memberId) {
-    const result = await $.ajax({
-        type: 'GET',
-        url: './api/members/getPoints.php',
-        data: {
-            memberId: memberId
-        }
-    });
-
-    return result;
-}
-
-async function getPointsAverage(memberId) {
-    const result = await $.ajax({
-        type: 'GET',
-        url: './api/members/getPointsAverage.php',
-        data: {
-            memberId: memberId
-        }
-    });
-
-    return result;
-}
-
-async function getTotal() {
-    const result = await $.ajax({
-        type: 'GET',
-        url: './api/members/getTotal.php'
     });
 
     return result;

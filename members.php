@@ -22,15 +22,6 @@
 	<script src="./assets/js/libs/jquery.min.js"></script>
 	<script src="./assets/js/services/members.js"></script>
 	<script>
-		getMembers()
-			.then(function(res) {
-				setMembersTable(res);
-			})
-			.catch(function(err) {
-				console.log('Something went wrong.');
-				// console.log(err);
-			});
-
 		function setMembersTable(arrMembers) {
 			arrMembers.forEach(member => {
 				let proStamp = member.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
@@ -45,6 +36,15 @@
 				);
 			});
 		}
+
+		getMembers()
+			.then(function(res) {
+				setMembersTable(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
 	</script>
 </body>
 

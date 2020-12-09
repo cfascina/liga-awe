@@ -13,11 +13,11 @@
 
 	<div class="content index">
         <div class="info">
-            <div class="total">
+            <div class="count">
 				<h1>Membros</h1>
 				<span></span>
 			</div>
-            <div class="members-avg">
+            <div class="average">
 				<h1>Média</h1>
 				<span></span>
 			</div>
@@ -42,11 +42,15 @@
 	<script src="./assets/js/libs/jquery.min.js"></script>
     <script src="./assets/js/services/members.js"></script>
     <script>
-        function setBoxMembersTotal(number) {
-			$('.info .total span').append(number);
+        function setBoxMembersCount(count) {
+			$('.info .count span').append(count);
+		}
+
+		function setBoxMembersAverage(average) {
+			$('.info .average span').append(average.replace('.', ','));
         }
 
-        function setBoxHighestScore(data) {
+        function setBoxMembersHighestScore(data) {
 			$('.info .highest-score span').append(
 				'<strong>' + data.team + '</strong> (' + data.name + ') ' + 
 				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
@@ -54,7 +58,7 @@
 			);
         }
 
-		function setBoxLowestScore(data) {
+		function setBoxMembersLowestScore(data) {
 			$('.info .lowest-score span').append(
 				'<strong>' + data.team + '</strong> (' + data.name + ') ' + 
 				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
@@ -62,35 +66,41 @@
 			);
 		}
         
-        getTotal()
+        getMembersCount()
 			.then(function(res) {
-				setBoxMembersTotal(res.total);
+				setBoxMembersCount(res.count);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+			
+		getMembersAverage()
+			.then(function(res) {
+				setBoxMembersAverage(res.average);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+        
+		getMembersHighestScore()
+			.then(function(res) {
+				setBoxMembersHighestScore(res);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');
 				// console.log(err);
             });
         
-		getHighestScore()
+		getMembersLowestScore()
 			.then(function(res) {
-				setBoxHighestScore(res);
+				setBoxMembersLowestScore(res);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');
-				console.log(err);
+				// console.log(err);
             });
-        
-		getLowestScore()
-			.then(function(res) {
-				setBoxLowestScore(res);
-			})
-			.catch(function(err) {
-				console.log('Something went wrong.');
-				console.log(err);
-            });
-            
-
-            
     </script>
 </body>
 

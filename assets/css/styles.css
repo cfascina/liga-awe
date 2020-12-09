@@ -160,7 +160,6 @@ footer a:hover {
 	margin: 30px auto 0;
 	width: 90%;
 }
-/* .content.member-details .info {} */
 .content.member-details .profile .shield-wrap {
 	position: relative;
 	width: 80px;
@@ -189,6 +188,7 @@ footer a:hover {
 }
 .content.member-details .profile div.name {
 	color: #CF8B64;
+	font-size: 18px;
 }
 .content.member-details .summary {
 	display: flex;
@@ -202,7 +202,7 @@ footer a:hover {
 }
 .content.member-details .summary > div h1 {
 	color: #692705;
-	font-size: 18px;
+	font-size: 20px;
 	margin: 0 auto 15px;
 	text-align: center;
 }
@@ -226,7 +226,7 @@ footer a:hover {
 }
 .content.member-details .chart h1 {
 	color: #692705;
-	font-size: 18px;
+	font-size: 20px;
 	margin: 0 auto 15px;
 	text-align: center;
 }

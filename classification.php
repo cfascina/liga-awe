@@ -57,10 +57,6 @@
 	<script src="./assets/js/libs/datatables.min.js"></script>
 	<script src="./assets/js/services/classification.js"></script>
 	<script>
-        $('.slt-round').on('change', function() {
-            changeRound(this.value);
-        });
-
         function changeRound(roundId) {
             if(roundId != 0) {
                 getClassification(roundId)
@@ -116,6 +112,10 @@
         function setSelectedRound(idRound) {
             $('.selected-round span').empty().append(idRound);
         }
+
+        $('.slt-round').on('change', function() {
+            changeRound(this.value);
+        });
 
         changeRound(1);
 	</script>

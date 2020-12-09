@@ -6,7 +6,7 @@ header('Content-Type: application/json; charset=UTF-8');
 include '../../config/database.php';
 
 $sqlQuery = "
-    SELECT COUNT(1) AS total 
+    SELECT COUNT(1) AS count 
     FROM members 
 ";
 

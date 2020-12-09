@@ -61,21 +61,6 @@
 			return paramValue[1] || 0;
 		}
 
-		function setBoxPatrimony(average) {
-			$('.summary .patrimony span').append(average.replace('.', ',') + ' cartoletas');
-		}
-
-		function setBoxPoints(points, rounds) {
-			$('.summary .points-and-rounds span').append(
-				points.replace('.', ',') + 
-				' pontos em ' + rounds + ' rodadas'
-			);
-		}
-
-		function setBoxPointsAverage(average) {
-			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
-		}
-
 		function setProfile(data) {
 			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 			
@@ -85,15 +70,21 @@
 			$('.profile .name').append(data.name + ' (Cartoleiro desde ' + data.first_year + ')');
 		}
 
-		getChartData($.urlParam('memberId'))
-			.then(function(res) {
-				splitChartData(res);
-			})
-			.catch(function(err) {
-				console.log('Algo de errado não está certo!');
-				// console.log(err);
-			});
+		function setBoxMemberPoints(points, rounds) {
+			$('.summary .points-and-rounds span').append(
+				points.replace('.', ',') + 
+				' pontos em ' + rounds + ' rodadas'
+			);
+		}
+		
+		function setBoxMemberAverage(average) {
+			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
+		}
 
+		function setBoxMemberPatrimony(average) {
+			$('.summary .patrimony span').append(average.replace('.', ',') + ' cartoletas');
+		}
+		
 		getMember($.urlParam('memberId'))
 			.then(function(res) {
 				setProfile(res);
@@ -102,26 +93,37 @@
 				console.log('Algo de errado não está certo!');
 				// console.log(err);
 			});
-		getPatrimony($.urlParam('memberId'))
+
+		getMemberPoints($.urlParam('memberId'))
 			.then(function(res) {
-				setBoxPatrimony(res.patrimony)
-			})
-			.catch(function(err) {
-				console.log('Algo de errado não está certo!');
-				// console.log(err);
-			});
-		getPoints($.urlParam('memberId'))
-			.then(function(res) {
-				setBoxPoints(res.points, res.rounds)
+				setBoxMemberPoints(res.points, res.rounds)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');
 				// console.log(err);
 			});
 
-		getPointsAverage($.urlParam('memberId'))
+		getMemberAverage($.urlParam('memberId'))
 			.then(function(res) {
-				setBoxPointsAverage(res.average)
+				setBoxMemberAverage(res.average)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+
+		getMemberPatrimony($.urlParam('memberId'))
+			.then(function(res) {
+				setBoxMemberPatrimony(res.patrimony)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+
+		getMemberChartData($.urlParam('memberId'))
+			.then(function(res) {
+				splitChartData(res);
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');
