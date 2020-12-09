@@ -20,7 +20,9 @@
             <div class="members-avg">
 				<h1>Média</h1>
 				<span></span>
-            </div>
+			</div>
+		</div>
+		<div class="info">
             <div class="highest-score">
 				<h1>Maior Pontuação</h1>
 				<span></span>
@@ -46,19 +48,17 @@
 
         function setBoxHighestScore(data) {
 			$('.info .highest-score span').append(
-				data.points.replace('.', ',') + ' pontos <br>' + 
-				data.team + '<br>' + 
-				data.name + '<br> na rodada ' +
-				data.id_round
+				'<strong>' + data.team + '</strong> (' + data.name + ') ' + 
+				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
+				'na rodada <strong>' + data.id_round + '</strong>'
 			);
         }
 
 		function setBoxLowestScore(data) {
 			$('.info .lowest-score span').append(
-				data.points.replace('.', ',') + ' pontos <br>' + 
-				data.team + '<br>' + 
-				data.name + '<br> na rodada ' +
-				data.id_round
+				'<strong>' + data.team + '</strong> (' + data.name + ') ' + 
+				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
+				'na rodada <strong>' + data.id_round + '</strong>'
 			);
 		}
         
