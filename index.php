@@ -27,6 +27,20 @@
 			</div>
 		</div>
 		<div class="info">
+            <div class="shield first-place">
+				<h1>Líder</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
+				<span></span>
+            </div>
+            <div class="shield last-place">
+				<h1>Lanterninha</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
+				<span></span>
+            </div>
             <div class="highest-score">
 				<h1>Maior Pontuação</h1>
 				<span></span>
@@ -49,13 +63,36 @@
 		}
 
 		function setBoxMembersAveragePoints(average) {
-			console.log(average);
 			$('.info .average-points h1').append(average.replace('.', ','));
         }
 
 		function setBoxMembersAveragePatrimony(average) {
 			$('.info .average-patrimony h1').append(average.replace('.', ','));
-        }
+		}
+
+		function setBoxMembersFirstPlace(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+			
+			$('.info .shield.first-place .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.first-place .wrap img.shield').after(proStamp);
+			$('.info .shield.first-place span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
+				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos ' +
+				'em <strong>' + data.id_round + ' rodadas</strong>'
+			);
+		}
+
+		function setBoxMembersLastPlace(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+			
+			$('.info .shield.last-place .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.last-place .wrap img.shield').after(proStamp);
+			$('.info .shield.last-place span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
+				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos ' +
+				'em <strong>' + data.id_round + ' rodadas</strong>'
+			);
+		}
 
         function setBoxMembersHighestScore(data) {
 			$('.info .highest-score span').append(
@@ -99,7 +136,22 @@
 				console.log('Something went wrong.');
 				// console.log(err);
 			});
-        
+		getMembersFirstPlace()
+			.then(function(res) {
+				setBoxMembersFirstPlace(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+		getMembersLastPlace()
+			.then(function(res) {
+				setBoxMembersLastPlace(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
 		getMembersHighestScore()
 			.then(function(res) {
 				setBoxMembersHighestScore(res);

@@ -94,10 +94,28 @@ async function getMembersCount() {
     return result;
 }
 
+async function getMembersFirstPlace() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersFirstPlace.php'
+    });
+
+    return result;
+}
+
 async function getMembersHighestScore() {
     const result = await $.ajax({
         type: 'GET',
         url: './api/members/getMembersHighestScore.php'
+    });
+
+    return result;
+}
+
+async function getMembersLastPlace() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersLastPlace.php'
     });
 
     return result;
