@@ -7,8 +7,10 @@ include '../../config/database.php';
 
 $sqlQuery = "
     SELECT
+        R.id_member,
         M.team,
-        M.name,
+        M.shield,
+        M.pro,
         MAX(points) AS points,
         R.id_round
     FROM rounds R

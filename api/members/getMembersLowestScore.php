@@ -7,8 +7,10 @@ include '../../config/database.php';
 
 $sqlQuery = "
     SELECT
-        M.team,
-        M.name,
+        R.id_member,
+        M.team, 
+        M.shield, 
+        M.pro,
         MIN(points) AS points,
         R.id_round
     FROM rounds R

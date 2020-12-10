@@ -41,15 +41,20 @@
 				</div>
 				<span></span>
             </div>
-            <div class="highest-score">
-				<h1>Maior Pontuação</h1>
+            <div class="shield highest-score">
+				<h1>Maior Mitada</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
 				<span></span>
             </div>
-            <div class="lowest-score">
-				<h1>Menor Pontuação</h1>
+            <div class="shield lowest-score">
+				<h1>Maior Mitada</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
 				<span></span>
-            </div>
-            
+            </div>            
         </div>
 	</div>
 
@@ -95,16 +100,24 @@
 		}
 
         function setBoxMembersHighestScore(data) {
-			$('.info .highest-score span').append(
-				'<strong>' + data.team + '</strong> (' + data.name + ') ' + 
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+
+			$('.info .shield.highest-score .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.highest-score .wrap img.shield').after(proStamp);
+			$('.info .shield.highest-score span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
 				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
 				'na rodada <strong>' + data.id_round + '</strong>'
 			);
         }
-
+		
 		function setBoxMembersLowestScore(data) {
-			$('.info .lowest-score span').append(
-				'<strong>' + data.team + '</strong> (' + data.name + ') ' + 
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+
+			$('.info .shield.lowest-score .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.lowest-score .wrap img.shield').after(proStamp);
+			$('.info .shield.lowest-score span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
 				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
 				'na rodada <strong>' + data.id_round + '</strong>'
 			);
