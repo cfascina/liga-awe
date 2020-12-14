@@ -96,3 +96,10 @@ table.dataTable tbody td span.name {
     font-size: 14px;
     margin-left: 5px;
 }
+
+/*----------------------------*/
+/* Custom
+/*----------------------------*/
+table.members thead th {
+    background-color: blue;
+}

@@ -7,14 +7,14 @@ include '../../config/database.php';
 
 $sqlQuery = "
 	SELECT
-		id,
 		id_cartola,
 		name,
 		team,
 		shield,
-		pro
+		pro,
+		first_year
 	FROM members
-	ORDER BY team
+	ORDER BY name
 ";
 
 $result = $conn->prepare($sqlQuery);
