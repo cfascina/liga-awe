@@ -6,8 +6,10 @@ header('Content-Type: application/json; charset=UTF-8');
 include '../../config/database.php';
 
 $sqlQuery = "
-    SELECT COUNT(1) AS count 
-    FROM members 
+    SELECT 
+	MAX(id_round) AS quantity
+    FROM rounds
+    LIMIT 1
 ";
 
 $result = $conn->prepare($sqlQuery);

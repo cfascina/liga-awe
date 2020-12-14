@@ -13,17 +13,21 @@
 
 	<div class="content index">
         <div class="info">
-            <div class="count">
+            <div class="members-quantity">
 				<h1></h1>
 				<span>membros</span>
 			</div>
+			<div class="rounds-quantity">
+				<h1></h1>
+				<span>rodadas computadas</span>
+			</div>
             <div class="average-points">
 				<h1></h1>
-				<span>é a média de pontos</span>
+				<span>média de pontos</span>
 			</div>
 			<div class="average-patrimony">
 				<h1></h1>
-				<span>é a média de patrimônio</span>
+				<span>média de patrimônio</span>
 			</div>
 		</div>
 		<div class="info">
@@ -54,8 +58,8 @@
 					<img class="shield" />
 				</div>
 				<span></span>
-            </div>            
-        </div>
+			</div>
+		</div>
 		<div class="info">
             <div class="shield richiest">
 				<h1>Mais Rico</h1>
@@ -78,9 +82,14 @@
 
 	<script src="./assets/js/libs/jquery.min.js"></script>
     <script src="./assets/js/services/members.js"></script>
+    <script src="./assets/js/services/rounds.js"></script>
     <script>
-        function setBoxMembersCount(count) {
-			$('.info .count h1').append(count);
+        function setBoxMembersQuantity(quantity) {
+			$('.info .members-quantity h1').append(quantity);
+		}
+
+        function setBoxRoundsQuantity(quantity) {
+			$('.info .rounds-quantity h1').append(quantity);
 		}
 
 		function setBoxMembersAveragePoints(average) {
@@ -88,7 +97,7 @@
         }
 
 		function setBoxMembersAveragePatrimony(average) {
-			$('.info .average-patrimony h1').append(average.replace('.', ','));
+			$('.info .average-patrimony h1').append('C$ ' + average.replace('.', ','));
 		}
 
 		function setBoxMembersFirstPlace(data) {
@@ -98,8 +107,7 @@
 			$('.info .shield.first-place .wrap img.shield').after(proStamp);
 			$('.info .shield.first-place span').append(
 				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
-				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos ' +
-				'em <strong>' + data.id_round + ' rodadas</strong>'
+				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
 			);
 		}
 
@@ -110,8 +118,7 @@
 			$('.info .shield.last-place .wrap img.shield').after(proStamp);
 			$('.info .shield.last-place span').append(
 				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
-				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos ' +
-				'em <strong>' + data.id_round + ' rodadas</strong>'
+				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
 			);
 		}
 
@@ -161,15 +168,22 @@
 			);
 		}
         
-        getMembersCount()
+        getMembersQuantity()
 			.then(function(res) {
-				setBoxMembersCount(res.count);
+				setBoxMembersQuantity(res.quantity);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');
 				// console.log(err);
 			});
-			
+		getRoundsQuantity()
+			.then(function(res) {
+				setBoxRoundsQuantity(res.quantity);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
 		getMembersAveragePatrimony()
 			.then(function(res) {
 				setBoxMembersAveragePatrimony(res.average);

@@ -85,15 +85,6 @@ async function getMembersAveragePoints() {
     return result;
 }
 
-async function getMembersCount() {
-    const result = await $.ajax({
-        type: 'GET',
-        url: './api/members/getMembersCount.php'
-    });
-
-    return result;
-}
-
 async function getMembersFirstPlace() {
     const result = await $.ajax({
         type: 'GET',
@@ -134,6 +125,15 @@ async function getMembersPoorest() {
     const result = await $.ajax({
         type: 'GET',
         url: './api/members/getMembersPoorest.php'
+    });
+
+    return result;
+}
+
+async function getMembersQuantity() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersQuantity.php'
     });
 
     return result;
