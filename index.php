@@ -111,17 +111,6 @@
 			);
 		}
 
-		function setBoxMembersLastPlace(data) {
-			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
-			
-			$('.info .shield.last-place .wrap img.shield').attr('src', data.shield);
-			$('.info .shield.last-place .wrap img.shield').after(proStamp);
-			$('.info .shield.last-place span').append(
-				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
-				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
-			);
-		}
-
         function setBoxMembersHighestScore(data) {
 			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 
@@ -134,6 +123,28 @@
 			);
         }
 		
+		function setBoxMembersRichiest(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+
+			$('.info .shield.richiest .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.richiest .wrap img.shield').after(proStamp);
+			$('.info .shield.richiest span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_cartola + '">' + data.team + '</a> ' +
+				'com <strong>C$ ' + data.patrimony.replace('.', ',') + '</strong> '
+			);
+		}
+
+		function setBoxMembersLastPlace(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+			
+			$('.info .shield.last-place .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.last-place .wrap img.shield').after(proStamp);
+			$('.info .shield.last-place span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
+				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
+			);
+		}
+		
 		function setBoxMembersLowestScore(data) {
 			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 
@@ -143,17 +154,6 @@
 				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
 				'fez <strong>' + data.points.replace('.', ',') + '</strong> pontos ' +
 				'na rodada <strong>' + data.id_round + '</strong>'
-			);
-		}
-		
-		function setBoxMembersRichiest(data) {
-			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
-
-			$('.info .shield.richiest .wrap img.shield').attr('src', data.shield);
-			$('.info .shield.richiest .wrap img.shield').after(proStamp);
-			$('.info .shield.richiest span').append(
-				'<a href="memberDetails.php?memberId=' + data.id_cartola + '">' + data.team + '</a> ' +
-				'com <strong>C$ ' + data.patrimony.replace('.', ',') + '</strong> '
 			);
 		}
 		
