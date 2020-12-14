@@ -79,9 +79,9 @@ footer .content a:hover {
 /*----------------------------*/
 .content.index {
 	box-sizing: border-box;
-	margin: 30px auto -35px;
+	margin: 30px auto 0;
 	max-width: 1280px;
-	min-height: calc(100vh - 80px);
+	min-height: calc(100vh - 155px);
 	padding: 0 15px;
 }
 .content.index .info {
@@ -151,9 +151,9 @@ footer .content a:hover {
 /*----------------------------*/
 .content.members {
 	box-sizing: border-box;
-	margin: 30px auto -35px;
+	margin: 30px auto 0;
 	max-width: 1280px;
-	min-height: calc(100vh - 80px);
+	min-height: calc(100vh - 155px);
 	padding: 0 15px;
 }
 /* .content.members .list {} */
@@ -199,7 +199,7 @@ footer .content a:hover {
 	box-sizing: border-box;
 	margin: 30px auto 0;
 	max-width: 1280px;
-	min-height: calc(100vh - 80px);
+	min-height: calc(100vh - 155px);
 	padding: 0 15px;
 }
 .content.member-details .profile .shield-wrap {
@@ -278,9 +278,9 @@ footer .content a:hover {
 /*----------------------------*/
 .content.classification {
 	box-sizing: border-box;
-	margin: 30px auto -35px;
+	margin: 30px auto 0;
 	max-width: 1280px;
-	min-height: calc(100vh - 80px);
+	min-height: calc(100vh - 155px);
 	padding: 0 15px;
 }
 .content.classification .select-wrap {
