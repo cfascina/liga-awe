@@ -38,29 +38,13 @@
 				</div>
 				<span></span>
             </div>
-            <div class="shield last-place">
-				<h1>Lanterninha</h1>
-				<div class="wrap">
-					<img class="shield" />
-				</div>
-				<span></span>
-            </div>
             <div class="shield highest-score">
-				<h1>Maior Mitada</h1>
+				<h1>Maior Pontuação</h1>
 				<div class="wrap">
 					<img class="shield" />
 				</div>
 				<span></span>
             </div>
-            <div class="shield lowest-score">
-				<h1>Maior Vergonha</h1>
-				<div class="wrap">
-					<img class="shield" />
-				</div>
-				<span></span>
-			</div>
-		</div>
-		<div class="info">
             <div class="shield richiest">
 				<h1>Mais Rico</h1>
 				<div class="wrap">
@@ -68,6 +52,22 @@
 				</div>
 				<span></span>
             </div>
+		</div>
+		<div class="info">
+            <div class="shield last-place">
+				<h1>Lanterninha</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
+				<span></span>
+            </div>
+            <div class="shield lowest-score">
+				<h1>Menor Pontuação</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
+				<span></span>
+			</div>
             <div class="shield poorest">
 				<h1>Mais Pobre</h1>
 				<div class="wrap">
@@ -209,14 +209,6 @@
 				console.log('Something went wrong.');
 				// console.log(err);
 			});
-		getMembersLastPlace()
-			.then(function(res) {
-				setBoxMembersLastPlace(res);
-			})
-			.catch(function(err) {
-				console.log('Something went wrong.');
-				// console.log(err);
-			});
 		getMembersHighestScore()
 			.then(function(res) {
 				setBoxMembersHighestScore(res);
@@ -225,15 +217,6 @@
 				console.log('Something went wrong.');
 				// console.log(err);
             });
-        
-		getMembersLowestScore()
-			.then(function(res) {
-				setBoxMembersLowestScore(res);
-			})
-			.catch(function(err) {
-				console.log('Something went wrong.');
-				// console.log(err);
-			});
 		getMembersRichiest()
 			.then(function(res) {
 				// console.log(res);
@@ -243,7 +226,23 @@
 				console.log('Something went wrong.');
 				// console.log(err);
 			});
-			getMembersPoorest()
+		getMembersLastPlace()
+			.then(function(res) {
+				setBoxMembersLastPlace(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+		getMembersLowestScore()
+			.then(function(res) {
+				setBoxMembersLowestScore(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+		getMembersPoorest()
 			.then(function(res) {
 				// console.log(res);
 				setBoxMembersPoorest(res);
