@@ -149,6 +149,17 @@
 				'com <strong>C$ ' + data.patrimony.replace('.', ',') + '</strong> '
 			);
 		}
+		
+		function setBoxMembersPoorest(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+
+			$('.info .shield.poorest .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.poorest .wrap img.shield').after(proStamp);
+			$('.info .shield.poorest span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_cartola + '">' + data.team + '</a> ' +
+				'com <strong>C$ ' + data.patrimony.replace('.', ',') + '</strong> '
+			);
+		}
         
         getMembersCount()
 			.then(function(res) {
@@ -213,6 +224,15 @@
 			.then(function(res) {
 				// console.log(res);
 				setBoxMembersRichiest(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+			getMembersPoorest()
+			.then(function(res) {
+				// console.log(res);
+				setBoxMembersPoorest(res);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');

@@ -130,6 +130,15 @@ async function getMembersLowestScore() {
     return result;
 }
 
+async function getMembersPoorest() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersPoorest.php'
+    });
+
+    return result;
+}
+
 async function getMembersRichiest() {
     const result = await $.ajax({
         type: 'GET',
