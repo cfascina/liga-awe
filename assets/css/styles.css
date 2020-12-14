@@ -103,13 +103,18 @@ footer .content a:hover {
 }
 .content.index .info > div h1 {
 	color: #692705;
-	font-size: 20px;
-	margin: 0 auto 15px;
+	font-size: 32px;
+	margin: 0 auto 5px;
 	text-align: center;
 }
 .content.index .info > div span {
 	display: block;
+	line-height: 24px;
 	text-align: center;
+}
+.content.index .info .shield h1 {
+	font-size: 20px;
+	margin: 0 auto 15px;
 }
 .content.index .info .shield .wrap {
 	height: 50px;
@@ -130,9 +135,6 @@ footer .content a:hover {
 	position: absolute;
 	right: -16px;
 	width: 32px;
-}
-.content.index .info .shield span {
-	line-height: 24px;
 }
 .content.index .info .shield span a {
 	color: #692705;

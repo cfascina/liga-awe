@@ -15,15 +15,15 @@
         <div class="info">
             <div class="count">
 				<h1></h1>
-				<span>membros na liga</span>
+				<span>membros</span>
 			</div>
             <div class="average-points">
 				<h1></h1>
-				<span>é a média de pontos da liga</span>
+				<span>é a média de pontos</span>
 			</div>
 			<div class="average-patrimony">
 				<h1></h1>
-				<span>é a média de patrimônio da liga</span>
+				<span>é a média de patrimônio</span>
 			</div>
 		</div>
 		<div class="info">
@@ -49,7 +49,7 @@
 				<span></span>
             </div>
             <div class="shield lowest-score">
-				<h1>Maior Mitada</h1>
+				<h1>Maior Vergonha</h1>
 				<div class="wrap">
 					<img class="shield" />
 				</div>
