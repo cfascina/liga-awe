@@ -56,6 +56,22 @@
 				<span></span>
             </div>            
         </div>
+		<div class="info">
+            <div class="shield richiest">
+				<h1>Mais Rico</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
+				<span></span>
+            </div>
+            <div class="shield poorest">
+				<h1>Mais Pobre</h1>
+				<div class="wrap">
+					<img class="shield" />
+				</div>
+				<span></span>
+            </div>          
+        </div>
 	</div>
 
 	<?php require_once('partials/footer.html'); ?>
@@ -122,6 +138,17 @@
 				'na rodada <strong>' + data.id_round + '</strong>'
 			);
 		}
+		
+		function setBoxMembersRichiest(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+
+			$('.info .shield.richiest .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.richiest .wrap img.shield').after(proStamp);
+			$('.info .shield.richiest span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_cartola + '">' + data.team + '</a> ' +
+				'com <strong>C$ ' + data.patrimony.replace('.', ',') + '</strong> '
+			);
+		}
         
         getMembersCount()
 			.then(function(res) {
@@ -177,6 +204,15 @@
 		getMembersLowestScore()
 			.then(function(res) {
 				setBoxMembersLowestScore(res);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
+		getMembersRichiest()
+			.then(function(res) {
+				// console.log(res);
+				setBoxMembersRichiest(res);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');

@@ -130,6 +130,14 @@ async function getMembersLowestScore() {
     return result;
 }
 
+async function getMembersRichiest() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersRichiest.php'
+    });
+
+    return result;
+}
 /*************************/
 
 async function getMostUsedScheme(cartolaId) {
