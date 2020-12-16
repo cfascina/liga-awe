@@ -100,17 +100,6 @@
 			$('.info .average-patrimony h1').append('C$ ' + average.replace('.', ','));
 		}
 
-		function setBoxMembersFirstPlace(data) {
-			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
-			
-			$('.info .shield.first-place .wrap img.shield').attr('src', data.shield);
-			$('.info .shield.first-place .wrap img.shield').after(proStamp);
-			$('.info .shield.first-place span').append(
-				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
-				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
-			);
-		}
-
         function setBoxMembersHighestScore(data) {
 			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 
@@ -134,12 +123,23 @@
 			);
 		}
 
-		function setBoxMembersLastPlace(data) {
+		function setBoxMembersLast(data) {
 			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
 			
 			$('.info .shield.last-place .wrap img.shield').attr('src', data.shield);
 			$('.info .shield.last-place .wrap img.shield').after(proStamp);
 			$('.info .shield.last-place span').append(
+				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
+				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
+			);
+		}
+
+		function setBoxMembersLeader(data) {
+			let proStamp = data.pro == 1 ? '<img src="./assets/images/pro.svg" class="pro" />' : '';
+			
+			$('.info .shield.first-place .wrap img.shield').attr('src', data.shield);
+			$('.info .shield.first-place .wrap img.shield').after(proStamp);
+			$('.info .shield.first-place span').append(
 				'<a href="memberDetails.php?memberId=' + data.id_member + '">' + data.team + '</a> ' +
 				'com <strong>' + data.total.replace('.', ',') + '</strong> pontos'
 			);
@@ -201,9 +201,9 @@
 				console.log('Something went wrong.');
 				// console.log(err);
 			});
-		getMembersFirstPlace()
+		getMembersLeader()
 			.then(function(res) {
-				setBoxMembersFirstPlace(res);
+				setBoxMembersLeader(res);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');
@@ -226,9 +226,9 @@
 				console.log('Something went wrong.');
 				// console.log(err);
 			});
-		getMembersLastPlace()
+		getMembersLast()
 			.then(function(res) {
-				setBoxMembersLastPlace(res);
+				setBoxMembersLast(res);
 			})
 			.catch(function(err) {
 				console.log('Something went wrong.');

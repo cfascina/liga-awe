@@ -58,6 +58,18 @@ async function getMemberPoints(memberId) {
     return result;
 }
 
+async function getMemberTimesLast(memberId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMemberTimesLast.php',
+        data: {
+            memberId: memberId
+        }
+    });
+
+    return result;
+}
+
 async function getMemberTimesLeader(memberId) {
     const result = await $.ajax({
         type: 'GET',
@@ -97,15 +109,6 @@ async function getMembersAveragePoints() {
     return result;
 }
 
-async function getMembersFirstPlace() {
-    const result = await $.ajax({
-        type: 'GET',
-        url: './api/members/getMembersFirstPlace.php'
-    });
-
-    return result;
-}
-
 async function getMembersHighestScore() {
     const result = await $.ajax({
         type: 'GET',
@@ -115,10 +118,19 @@ async function getMembersHighestScore() {
     return result;
 }
 
-async function getMembersLastPlace() {
+async function getMembersLast() {
     const result = await $.ajax({
         type: 'GET',
-        url: './api/members/getMembersLastPlace.php'
+        url: './api/members/getMembersLast.php'
+    });
+
+    return result;
+}
+
+async function getMembersLeader() {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMembersLeader.php'
     });
 
     return result;

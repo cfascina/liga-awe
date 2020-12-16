@@ -13,12 +13,12 @@ $sqlQuery = "
     INNER JOIN (
         SELECT 
             id_round, 
-            MAX(points) AS leaders_points
+            MIN(points) AS last_points
         FROM rounds 
         GROUP BY id_round
     ) RL ON
         R.id_round = RL.id_round AND
-        R.points = RL.leaders_points
+        R.points = RL.last_points
     WHERE R.id_member = ?
 ";
 

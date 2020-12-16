@@ -40,6 +40,10 @@
 				<h1></h1>
 				<span>rodada(s) na liderança</span>
 			</div>
+			<div class="times-last">
+				<h1></h1>
+				<span>rodada(s) na lanterna</span>
+			</div>
 		</div>
 
 		<div class="chart points">
@@ -90,6 +94,10 @@
 		function setBoxMemberTimesLeader(times) {
 			$('.info .times-leader h1').append(times);
 		}
+
+		function setBoxMemberTimesLast(times) {
+			$('.info .times-last h1').append(times);
+		}
 		
 		getMember($.urlParam('memberId'))
 			.then(function(res) {
@@ -131,6 +139,14 @@
 		getMemberTimesLeader($.urlParam('memberId'))
 			.then(function(res) {
 				setBoxMemberTimesLeader(res.times)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+		getMemberTimesLast($.urlParam('memberId'))
+			.then(function(res) {
+				setBoxMemberTimesLast(res.times)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');
