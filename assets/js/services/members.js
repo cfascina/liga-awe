@@ -58,6 +58,18 @@ async function getMemberPoints(memberId) {
     return result;
 }
 
+async function getMemberTimesLeader(memberId) {
+    const result = await $.ajax({
+        type: 'GET',
+        url: './api/members/getMemberTimesLeader.php',
+        data: {
+            memberId: memberId
+        }
+    });
+
+    return result;
+}
+
 async function getMembers() {
     const result = await $.ajax({
         type: 'GET',

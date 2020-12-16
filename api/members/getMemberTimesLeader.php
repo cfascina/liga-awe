@@ -8,10 +8,19 @@ include '../../config/database.php';
 $memberId = isset($_GET['memberId']) ? $_GET['memberId'] : die(); 
 
 $sqlQuery = "
-	SELECT 
-		SUM(points) AS points
-	FROM rounds 
-    WHERE id_member = ?
+    SELECT COUNT(R.id_member) AS times
+    FROM rounds R 
+    INNER JOIN (
+        SELECT 
+            id_round, 
+            MAX(points) AS leaders_points
+        FROM rounds 
+        GROUP BY id_round
+    ) RL ON
+        R.id_round = RL.id_round AND
+        R.points = RL.leaders_points
+    WHERE R.id_member = ?
+    ORDER BY R.id_round
 ";
 
 $result = $conn->prepare($sqlQuery);

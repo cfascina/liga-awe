@@ -20,18 +20,25 @@
 			<div class="name"></div>
 		</div>
 
-		<div class="summary">
-			<div class="points-and-rounds">
-				<h1>Pontuação</h1>
-				<span></span>
+		<div class="info">
+			<div class="points">
+				<h1></h1>
+				<span>pontos</span>
 			</div>
 			<div class="average">
-				<h1>Média</h1>
-				<span></span>
+				<h1></h1>
+				<span>pontos por rodada</span>
 			</div>
 			<div class="patrimony">
-				<h1>Patrimônio</h1>
-				<span></span>
+				<h1></h1>
+				<span>cartoletas</span>
+			</div>
+		</div>
+
+		<div class="info">
+			<div class="times-leader">
+				<h1></h1>
+				<span>rodada(s) na liderança</span>
 			</div>
 		</div>
 
@@ -69,18 +76,19 @@
 		}
 
 		function setBoxMemberPoints(points, rounds) {
-			$('.summary .points-and-rounds span').append(
-				points.replace('.', ',') + 
-				' pontos em ' + rounds + ' rodadas'
-			);
+			$('.info .points h1').append(points.replace('.', ','));
 		}
 		
 		function setBoxMemberAverage(average) {
-			$('.summary .average span').append(average.replace('.', ',') + ' pontos por rodada');
+			$('.info .average h1').append(average.replace('.', ','));
 		}
 
 		function setBoxMemberPatrimony(average) {
-			$('.summary .patrimony span').append(average.replace('.', ',') + ' cartoletas');
+			$('.info .patrimony h1').append(average.replace('.', ','));
+		}
+
+		function setBoxMemberTimesLeader(times) {
+			$('.info .times-leader h1').append(times);
 		}
 		
 		getMember($.urlParam('memberId'))
@@ -94,7 +102,8 @@
 
 		getMemberPoints($.urlParam('memberId'))
 			.then(function(res) {
-				setBoxMemberPoints(res.points, res.rounds)
+				console.log(res);
+				setBoxMemberPoints(res.points)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');
@@ -113,6 +122,15 @@
 		getMemberPatrimony($.urlParam('memberId'))
 			.then(function(res) {
 				setBoxMemberPatrimony(res.patrimony)
+			})
+			.catch(function(err) {
+				console.log('Algo de errado não está certo!');
+				// console.log(err);
+			});
+
+		getMemberTimesLeader($.urlParam('memberId'))
+			.then(function(res) {
+				setBoxMemberTimesLeader(res.times)
 			})
 			.catch(function(err) {
 				console.log('Algo de errado não está certo!');

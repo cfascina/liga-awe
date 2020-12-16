@@ -229,27 +229,33 @@ footer .content a:hover {
 	color: #CF8B64;
 	font-size: 18px;
 }
-.content.member-details .summary {
+.content.member-details .info {
 	display: flex;
 	margin: 30px auto 0;
 }
-.content.member-details .summary > div {
+.content.member-details .info > div {
 	background-color: #FFEEE4;
 	border-radius: 15px;
 	flex: 1 1 0px;
+	flex-wrap: wrap;
+	margin: 0 15px;
 	padding: 15px;
 }
-.content.member-details .summary > div h1 {
+.content.member-details .info > div:first-of-type {
+	margin-left: 0;
+}
+.content.member-details .info > div:last-of-type {
+	margin-right: 0;
+}
+.content.member-details .info > div h1 {
 	color: #692705;
-	font-size: 20px;
-	margin: 0 auto 15px;
+	font-size: 32px;
+	margin: 0 auto 5px;
 	text-align: center;
 }
-.content.member-details .summary > div.average {
-	margin: 0 15px;
-}
-.content.member-details .summary > div span {
+.content.member-details .info > div span {
 	display: block;
+	line-height: 24px;
 	text-align: center;
 }
 .content.member-details .chart {
