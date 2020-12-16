@@ -75,8 +75,7 @@ footer .content a:hover {
 }
 
 /*----------------------------*/
-/* Index
-/*----------------------------*/
+/* Index ---------------------*/
 .content.index {
 	box-sizing: border-box;
 	margin: 30px auto 0;
@@ -147,8 +146,7 @@ footer .content a:hover {
 }
 
 /*----------------------------*/
-/* Members
-/*----------------------------*/
+/* Members -------------------*/
 .content.members {
 	box-sizing: border-box;
 	margin: 30px auto 0;
@@ -193,8 +191,7 @@ footer .content a:hover {
 }
 
 /*----------------------------*/
-/* Member Details
-/*----------------------------*/
+/* Member Details ------------*/
 .content.member-details {
 	box-sizing: border-box;
 	margin: 30px auto 0;
@@ -274,8 +271,7 @@ footer .content a:hover {
 }
 
 /*----------------------------*/
-/* Classification
-/*----------------------------*/
+/* Classification ------------*/
 .content.classification {
 	box-sizing: border-box;
 	margin: 30px auto 0;
