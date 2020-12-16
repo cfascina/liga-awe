@@ -28,34 +28,45 @@
             data.forEach(member => {
                 let isPro = member.pro == 1 ? 'Sim' : 'Não';
 
-                arrTable.push({
-                    id_member: '<span class="id-member">' + member.id_cartola + '</span>', 
+                arrTable.push({ 
                     team: 
                         '<div class="shield-wrap">' + 
                             '<img src="' + member.shield + '" />' + 
                             '<span>' + member.team + '</span>' +
                         '</div>',
                     name: '<div class="team">' + member.name + '</div>', 
-                    first_year: member.first_year, 
-                    pro: isPro
+                    firstYear: member.first_year, 
+                    pro: isPro,
+                    memberId: member.id_cartola
                 });
             });
 
-            setClassificationTable(arrTable);
+            setMembersTable(arrTable);
         }
 
-        function setClassificationTable(data) {
+        function setMembersTable(data) {
             $('table.members').DataTable({
                 data: data,
                 'bInfo': false,
                 'order': [1, 'asc'],
                 paging: false,
                 columns: [
-                    {data: 'team',       title: 'Time' },
-                    {data: 'name',       title: 'Nome' },
-                    {data: 'first_year', title: 'Cartoleiro Desde' },
-                    {data: 'pro',        title: 'Pró' }
-                ]
+                    {data: 'team',      title: 'Time' },
+                    {data: 'name',      title: 'Nome' },
+                    {data: 'firstYear', title: 'Cartoleiro Desde' },
+                    {data: 'pro',       title: 'Pró' },
+                    {data: 'memberId',  title: '' }
+				],
+				columnDefs: [
+					{
+						targets: 4,
+						data: 'memberId',
+						orderable: false,
+    					render: function(data, type, row, meta) {
+							return '<a href="memberDetails.php?memberId=' + data + '">Detalhes</a>';
+						}
+					}
+				]
             });
         }
 

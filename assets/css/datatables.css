@@ -128,3 +128,16 @@ table.members tbody .shield-wrap span {
 table.members tbody .team {
     text-align: left;
 }
+table.members tbody a {
+    background: #692705;
+    border-radius: 5px;
+    color: #FFEEE4;
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+table.members tbody a:hover {
+    background-color: #FFEEE4;
+    color: #FF5700;
+}
