@@ -15,32 +15,7 @@
 	<div class="content classification">
         <div class="select-wrap">
             <label class="rounds">Selecione a rodada</label>
-            <select class="slt-round">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-            </select>
+            <select class="slt-round"></select>
         </div>
 
         <div class="selected-round">Rodada selecionada: <span></span></div>
@@ -53,8 +28,15 @@
 
 	<script src="./assets/js/libs/jquery.min.js"></script>
 	<script src="./assets/js/libs/datatables.min.js"></script>
+    <script src="./assets/js/services/rounds.js"></script>
 	<script src="./assets/js/services/classification.js"></script>
 	<script>
+        function setRoundsSelect(quantity) {
+            for(let roundId = 1; roundId <= quantity; roundId++) {
+                $('.slt-round').append('<option value="' + roundId + '">' + roundId + '</option>')
+            }
+        }
+        
         function changeRound(roundId) {
             if(roundId != 0) {
                 getClassification(roundId)
@@ -77,9 +59,11 @@
                 arrTable.push({
                     position: '<span class="position">' + (index + 1) + '</span>',
                     team: 
-                        '<img src="' + member.shield + '" class="shield" />' + 
-                        '<span class="team">' + member.team + '</span>' +
-                        '<span class="name"> (' + member.name + ')</span>',
+                        '<div class="shield-wrap">' + 
+                            '<img src="' + member.shield + '" />' + 
+                            '<span class="team">' + member.team + '</span>' +
+                            '<span class="name">(' + member.team + ')</span>' +
+                        '</div>',
                     points: member.points.replace('.', ','),
                     total_round: member.total_round.replace('.', ','),
                     total_championship: member.total_championship.replace('.', ',')
@@ -114,6 +98,15 @@
         $('.slt-round').on('change', function() {
             changeRound(this.value);
         });
+
+        getRoundsQuantity()
+			.then(function(res) {
+				setRoundsSelect(res.quantity);
+			})
+			.catch(function(err) {
+				console.log('Something went wrong.');
+				// console.log(err);
+			});
 
         changeRound(1);
 	</script>
