@@ -15,6 +15,16 @@
     margin-left: 5px;
 }
 
+@media only screen and (max-width: 1279px) {
+    .dataTables_filter {
+        width: calc(100vw - 30px);
+    }
+    .dataTables_filter input {
+        margin: 5px 0 auto;
+        width: 100%;
+    }
+}
+
 /*----------------------------*/
 /* table ---------------------*/
 table.dataTable  {
@@ -117,6 +127,13 @@ table.members tbody tr td:last-of-type a {
 table.members tbody tr td:last-of-type a:hover {
     background-color: #FFEEE4;
     color: #FF5700;
+}
+
+@media only screen and (max-width: 1279px) {
+    table.members {
+        /* margin-top: 0; */
+        /* padding-top: 75px; */
+    }
 }
 
 /*----------------------------*/
