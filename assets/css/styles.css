@@ -149,46 +149,16 @@ footer .content a:hover {
 /* Members -------------------*/
 .content.members {
 	box-sizing: border-box;
-	margin: 30px auto 0;
+	margin: 0 auto;
 	max-width: 1280px;
 	min-height: calc(100vh - 145px);
 	padding: 0 15px;
 }
-/* .content.members .list {} */
-.content.members .list a {
-	background-color: #E5C7BC;
-	border-radius: 15px;
-	color: #692705;
-	align-items: center;
-	display: flex;
-	justify-content: flex-start;
-	margin-top: 10px;
-	padding: 15px;
-	text-decoration: none;
+.content.members .table-wrap {
+	/* background-color: red; */
+	overflow-x: auto;
 }
-.content.members .list a:first-of-type {
-	margin-top: 0;
-}
-.content.members .list a:hover {
-	background-color: #FF5700;
-}
-.content.members .list a img.shield {
-	height: 40px;
-	width: 40px;
-}
-.content.members .list a span.team {
-	font-weight: 700;
-	margin-left: 10px;
-}
-.content.members .list a span.name {
-	font-size: 14px;
-	margin-left: 5px;
-}
-.content.members .list a img.pro {
-	height: 20px;
-	margin-left: auto;
-	width: 40px;
-}
+
 
 /*----------------------------*/
 /* Member Details ------------*/

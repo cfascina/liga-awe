@@ -34,7 +34,9 @@ table.dataTable thead th {
     background-color: #692705;
     color: #FFEEE4;
     cursor: pointer;
-    padding: 15px;
+    padding: 15px 15px 15px 25px;
+    text-align: left;
+    white-space: nowrap;
 }
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
@@ -74,18 +76,14 @@ table.dataTable tbody tr:hover {
     border-radius: 10px;
 }
 table.dataTable tbody td {
-    padding: 10px 0;
-    text-align: center;
+    padding: 10px 0 10px 25px;
+    white-space: nowrap;
 }
 
 /*----------------------------*/
 /* Custom Members  -----------*/
 table.members {
     margin-top: 15px;
-}
-table.members thead th:nth-child(-n+2) {
-    padding-left: 25px;
-    text-align: left;
 }
 table.members tbody .shield-wrap {
     align-items: center;
@@ -95,7 +93,6 @@ table.members tbody .shield-wrap {
 }
 table.members tbody .shield-wrap img {
     height: 24px;
-    margin-left: 15px;
 	width: 24px;
 }
 table.members tbody .shield-wrap span {
@@ -103,6 +100,10 @@ table.members tbody .shield-wrap span {
 }
 table.members tbody .team {
     text-align: left;
+}
+table.members tbody tr td:last-of-type {
+    padding-right: 25px;
+    text-align: right;
 }
 table.members tbody tr td:last-of-type a {
     background: #692705;

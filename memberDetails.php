@@ -27,7 +27,7 @@
 			</div>
 			<div class="average">
 				<h1></h1>
-				<span>pontos por rodada</span>
+				<span>média de pontos</span>
 			</div>
 			<div class="patrimony">
 				<h1></h1>

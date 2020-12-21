@@ -13,7 +13,9 @@
 	<?php require_once('partials/header.html'); ?>
 
 	<div class="content members">
-		<table class="members"></table>
+		<div class="table-wrap">
+			<table class="members"></table>
+		</div>
 	</div>
 
 	<?php require_once('partials/footer.html'); ?>
@@ -47,9 +49,15 @@
         function setMembersTable(data) {
             $('table.members').DataTable({
                 data: data,
-                'bInfo': false,
-                'order': [1, 'asc'],
+                bInfo: false,
+                order: [1, 'asc'],
                 paging: false,
+				responsive: {
+					details: {
+						type: 'column',
+						target: 'tr'
+					}
+				},
                 columns: [
                     {data: 'team',      title: 'Time' },
                     {data: 'name',      title: 'Nome' },
@@ -58,6 +66,7 @@
                     {data: 'memberId',  title: '' }
 				],
 				columnDefs: [
+					// { responsivePriority: 1, targets: 0 },
 					{
 						targets: 4,
 						data: 'memberId',
