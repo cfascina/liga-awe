@@ -27,6 +27,7 @@
 	<?php require_once('partials/footer.html'); ?>
 
 	<script src="./assets/js/libs/jquery.min.js"></script>
+	<script src="./assets/js/menuToggle.js"></script>
 	<script src="./assets/js/libs/datatables.min.js"></script>
     <script src="./assets/js/services/rounds.js"></script>
 	<script src="./assets/js/services/classification.js"></script>

@@ -34,6 +34,9 @@ header nav ul {
 	margin: 0;
 	padding: 0;
 }
+header nav ul li.toggle {
+	display: none;
+}
 header nav ul li {
 	float: left;
 }
@@ -72,6 +75,34 @@ footer .content a {
 }
 footer .content a:hover {
 	color: #FF5700;
+}
+
+@media only screen and (max-width: 1279px) {
+	header {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 9999;
+	}
+	header nav {
+		padding: 0;
+	}
+	header nav ul li.toggle {
+		color: #FFEEE4;
+		cursor: pointer;
+		display: block;
+		font-weight: 700;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+	header nav ul li {
+		float: unset;
+		display: none;
+	}
+	header nav ul li a {
+		text-align: center;
+	}
 }
 
 /*----------------------------*/
@@ -155,10 +186,14 @@ footer .content a:hover {
 	padding: 0 15px;
 }
 .content.members .table-wrap {
-	/* background-color: red; */
 	overflow-x: auto;
 }
 
+@media only screen and (max-width: 1279px) {
+	.content.members {
+		margin: 50px auto;
+	}
+}
 
 /*----------------------------*/
 /* Member Details ------------*/
