@@ -21,7 +21,9 @@
         <div class="selected-round">Rodada selecionada: <span></span></div>
         <div class="clear"></div>
 
-        <table class="classification"></table>
+		<div class="table-wrap">
+            <table class="classification"></table>
+        </div>
 	</div>
 
 	<?php require_once('partials/footer.html'); ?>
