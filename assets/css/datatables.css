@@ -27,7 +27,7 @@
 
 /*----------------------------*/
 /* table ---------------------*/
-table.dataTable  {
+table.dataTable {
     border-radius: 10px;
     border-spacing: 0;
     box-sizing: content-box;
@@ -127,13 +127,6 @@ table.members tbody tr td:last-of-type a {
 table.members tbody tr td:last-of-type a:hover {
     background-color: #FFEEE4;
     color: #FF5700;
-}
-
-@media only screen and (max-width: 1279px) {
-    table.members {
-        /* margin-top: 0; */
-        /* padding-top: 75px; */
-    }
 }
 
 /*----------------------------*/

@@ -181,6 +181,16 @@ footer .content a:hover {
 		margin: 80px auto 0;
 		min-height: unset;
 	}
+	.content.index .info {
+		display: block;
+		margin: 0 auto;
+	}
+	.content.index .info div {
+		margin: 30px auto 0;
+	}
+	.content.index .info:first-of-type div:first-of-type {
+		margin-top: 0;
+	}
 }
 
 /*----------------------------*/
@@ -192,24 +202,14 @@ footer .content a:hover {
 	min-height: calc(100vh - 145px);
 	padding: 0 15px;
 }
-.content.members .table-wrap {
-	overflow-x: auto;
-}
 
 @media only screen and (max-width: 1279px) {
 	.content.members {
 		margin: 50px auto 0;
 		min-height: unset;
 	}
-	.content.index .info {
-		display: block;
-		margin: 0 auto;
-	}
-	.content.index .info div {
-		margin: 30px auto 0;
-	}
-	.content.index .info:first-of-type div:first-of-type {
-		margin-top: 0;
+	.content.members .table-wrap {
+		overflow-x: auto;
 	}
 }
 
@@ -297,6 +297,20 @@ footer .content a:hover {
 	font-size: 20px;
 	margin: 0 auto 15px;
 	text-align: center;
+}
+
+@media only screen and (max-width: 1279px) {
+	.content.member-details {
+		margin: 80px auto 0;
+		min-height: unset;
+	}
+	.content.member-details .info {
+		display: block;
+		margin: 0 auto;
+	}
+	.content.member-details .info div {
+		margin: 30px auto 0;
+	}
 }
 
 /*----------------------------*/
