@@ -78,6 +78,9 @@ footer .content a:hover {
 }
 
 @media only screen and (max-width: 1279px) {
+	body {
+		height: auto;
+	}
 	header {
 		position: fixed;
 		top: 0;
@@ -179,7 +182,6 @@ footer .content a:hover {
 @media only screen and (max-width: 1279px) {
 	.content.index {
 		margin: 80px auto 0;
-		min-height: unset;
 	}
 	.content.index .info {
 		display: block;
@@ -206,7 +208,7 @@ footer .content a:hover {
 @media only screen and (max-width: 1279px) {
 	.content.members {
 		margin: 50px auto 0;
-		min-height: unset;
+		min-height: calc(100vh - 115px);
 	}
 	.content.members .table-wrap {
 		overflow-x: auto;
@@ -302,7 +304,6 @@ footer .content a:hover {
 @media only screen and (max-width: 1279px) {
 	.content.member-details {
 		margin: 80px auto 0;
-		min-height: unset;
 	}
 	.content.member-details .info {
 		display: block;
@@ -369,7 +370,6 @@ footer .content a:hover {
 @media only screen and (max-width: 1279px) {
 	.content.classification {
 		margin: 80px auto 0;
-		min-height: unset;
 	}
 	.content.classification .table-wrap {
 		overflow-x: auto;
@@ -384,5 +384,30 @@ footer .content a:hover {
 		line-height: unset;
 		margin: 15px auto 0;
 		text-align: center;
+	}
+}
+
+/*----------------------------*/
+/* Second Round --------------*/
+.content.second-round {
+	box-sizing: border-box;
+	margin: 30px auto 0;
+	max-width: 1280px;
+	min-height: calc(100vh - 145px);
+	padding: 0 15px;
+}
+.content.second-round h1 {
+	font-size: 22px;
+	margin: 0;
+	text-align: center;
+}
+.content.second-round img {
+	display: block;
+	margin: 30px auto 0;
+}
+
+@media only screen and (max-width: 1279px) {
+	.content.second-round {
+		margin: 80px auto 0;
 	}
 }
