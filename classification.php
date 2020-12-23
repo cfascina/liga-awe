@@ -36,14 +36,12 @@
         
         function changeRound(roundId) {
             if(roundId != 0) {
-                getClassification(roundId)
-                    .then(function(res) {
-                        handleClassificationData(res);
-                    })
-                    .catch(function(err) {
-                        console.log('Something went wrong.');
-                        // console.log(err);
-                    });
+                getClassification(roundId).done(function(res) {
+                    handleClassificationData(res);
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log('Failure at getClassification()');
+                    // console.log(errorThrown);
+                });
 
                 setSelectedRound(roundId);
             }
