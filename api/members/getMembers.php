@@ -21,8 +21,10 @@ $result = $conn->prepare($sqlQuery);
 
 if($result->execute()) {
 	$data = array();
-	
+
 	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		$row['name'] = utf8_encode($row['name']);
+		$row['team'] = utf8_encode($row['team']);
 		array_push($data, $row);
 	}
 	echo json_encode($data);

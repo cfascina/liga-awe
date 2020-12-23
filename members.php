@@ -47,12 +47,6 @@
                 bInfo: false,
                 order: [1, 'asc'],
                 paging: false,
-				responsive: {
-					details: {
-						type: 'column',
-						target: 'tr'
-					}
-				},
                 columns: [
                     {data: 'team',      title: 'Time' },
                     {data: 'name',      title: 'Nome' },
@@ -61,7 +55,6 @@
                     {data: 'memberId',  title: '' }
 				],
 				columnDefs: [
-					// { responsivePriority: 1, targets: 0 },
 					{
 						targets: 4,
 						data: 'memberId',
@@ -78,9 +71,9 @@
 			.then(function(res) {
 				handleMembersData(res);
 			})
-			.catch(function(err) {
+			.catch(function(e) {
 				console.log('Something went wrong.');
-				// console.log(err);
+				// console.log(e);
 			});
 	</script>
 </body>
