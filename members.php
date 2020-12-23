@@ -66,15 +66,13 @@
 				]
             });
         }
-
-		getMembers()
-			.then(function(res) {
-				handleMembersData(res);
-			})
-			.catch(function(e) {
-				console.log('Something went wrong.');
-				// console.log(e);
-			});
+        
+        getMembers().done(function(res) {
+            handleMembersData(res);
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.log('Failure at getMembers()');
+            // console.log(errorThrown);
+        });
 	</script>
 </body>
 

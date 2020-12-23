@@ -106,7 +106,6 @@
 
 		getMemberPoints($.urlParam('memberId'))
 			.then(function(res) {
-				console.log(res);
 				setBoxMemberPoints(res.points)
 			})
 			.catch(function(err) {

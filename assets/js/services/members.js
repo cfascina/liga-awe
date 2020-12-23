@@ -82,13 +82,12 @@ async function getMemberTimesLeader(memberId) {
     return result;
 }
 
-async function getMembers() {
-    const result = await $.ajax({
+function getMembers() {
+    return $.ajax({
         type: 'GET',
-        url: './api/members/getMembers.php',
+        dataType: 'json',
+        url: 'api/members/getMembers.php'
     });
-
-    return result;
 }
 
 async function getMembersAveragePatrimony() {
